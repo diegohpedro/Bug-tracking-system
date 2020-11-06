@@ -6,13 +6,15 @@ import Tarefas from './components/Tarefas';
 import NovoChamado from './components/NovoChamado';
 import Perfil from './components/Perfil';
 import Ajuda from './components/Ajuda';
+import Login from './components/Login';
 import './style.css';
 
 export default function Rotas() {
     return(
         <BrowserRouter>
             <Switch>
-                <Route exact path='/' component={Inicio}/>
+                <Route exact path='/' component={Login}/>
+                <Route path='/inicio' component={Inicio}/>
                 <Route path='/tarefas' component={Tarefas}/>
                 <Route path='/novochamado' component={NovoChamado}/>
                 <Route path='/perfil' component={Perfil}/>
