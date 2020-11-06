@@ -1,0 +1,7 @@
+#perfil {
+    display: flex;
+}
+
+#perfil main {
+    width: 100%;
+}

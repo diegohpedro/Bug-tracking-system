@@ -1,0 +1,19 @@
+#conteudo-header {
+    padding-left: 20px;
+    background-color: #f0efeb;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#conteudo-header h1 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 34px;
+    text-transform: uppercase;
+}
+
+#conteudo-header p {
+    font-size: 18px; 
+    font-family: 'Helvetica', sans-serif; 
+}
