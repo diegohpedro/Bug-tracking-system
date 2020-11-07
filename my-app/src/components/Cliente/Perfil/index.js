@@ -4,15 +4,14 @@ import ConteudoHeader from '../ConteudoHeader';
 
 import './style.css';
 
-export default function NovoChamado() {
+export default function Perfil() {
     return(
-        <section id='novo-chamado'>
+        <section id='perfil'>
             <Sidebar />
             <main>
-                
                 <ConteudoHeader 
-                    titulo='Novo chamado' 
-                    descricao='Painel para abertura de chamado.'
+                    titulo='Meu perfil' 
+                    descricao='Página para ver e editar perfil.'
                 />
             </main>
 

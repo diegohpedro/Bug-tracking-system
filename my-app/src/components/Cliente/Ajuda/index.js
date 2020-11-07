@@ -4,15 +4,14 @@ import ConteudoHeader from '../ConteudoHeader';
 
 import './style.css';
 
-export default function NovoChamado() {
+export default function Ajuda() {
     return(
-        <section id='novo-chamado'>
+        <section id='ajuda'>
             <Sidebar />
             <main>
-                
                 <ConteudoHeader 
-                    titulo='Novo chamado' 
-                    descricao='Painel para abertura de chamado.'
+                    titulo='Ajuda' 
+                    descricao='Página de ajuda ao usuário.'
                 />
             </main>
 

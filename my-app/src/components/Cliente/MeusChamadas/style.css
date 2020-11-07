@@ -1,0 +1,47 @@
+#tarefas {
+    display: flex;
+}
+
+#tarefas main {
+    width: 100%;
+    
+}
+
+.row-inputbusca{
+    margin-left: 4%;
+}
+
+.inputbusca{
+    width: 80%;
+    max-width: 1000px;
+    padding:10px;
+    border: 1px solid  rgb(12, 0, 0);
+    font-size: 1rem;
+    border-radius:5px;
+
+    
+}
+
+.btn-buscar{
+    padding: 10px;
+    border-radius:5px;
+    margin: 5px;
+    background-color: rgb(158, 154, 154);
+    /* transition:all 0.3s ease; */
+
+}
+
+.row-cardchamado{
+    margin-left: 4%
+}
+
+h3{
+    width: 100%;
+    max-width: 1000px;
+    margin: 10px;
+    text-align: center;
+}
+
+
+
+

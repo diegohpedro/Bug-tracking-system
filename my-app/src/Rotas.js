@@ -7,6 +7,7 @@ import NovoChamado from './components/NovoChamado';
 import Perfil from './components/Perfil';
 import Ajuda from './components/Ajuda';
 import Login from './components/Login';
+import MeusChamadas from './components/Cliente/MeusChamadas';
 import './style.css';
 
 export default function Rotas() {
@@ -19,6 +20,9 @@ export default function Rotas() {
                 <Route path='/novochamado' component={NovoChamado}/>
                 <Route path='/perfil' component={Perfil}/>
                 <Route path='/ajuda' component={Ajuda}/>
+                <Route path='/meuschamados' component={MeusChamadas}/>   
+
+
             </Switch>
         </BrowserRouter> 
     )

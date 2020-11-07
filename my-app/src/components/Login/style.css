@@ -6,7 +6,7 @@
   outline: none;
 }
 
-.container{
+.container-login{
   position: fixed;
   display: flex;
   justify-content: center;
@@ -37,7 +37,6 @@
 .row{
   width: 100%;
   max-width: 500px;
-  
   padding: 10px;
 }
 
@@ -46,7 +45,7 @@ label{
 
 }
 
-input{
+.input-login{
   display: block;
   width: 100%;
   padding: 10px;
@@ -66,7 +65,14 @@ input{
   max-width: 400px;
   font-size: 1.4rem;
   color: #fff;
-  
+  transition:all 0.3s ease;
+  opacity:1;
+}
+
+.btn-login:hover
+{
+  background-color:rgb(16, 243, 69);
+  opacity:0.5;      
 }
 
 .content-header{

@@ -9,10 +9,9 @@ export default function NovoChamado() {
         <section id='novo-chamado'>
             <Sidebar />
             <main>
-                
                 <ConteudoHeader 
                     titulo='Novo chamado' 
-                    descricao='Painel para abertura de chamado.'
+                    descricao='Página para abrir novo chamado.'
                 />
             </main>
 
