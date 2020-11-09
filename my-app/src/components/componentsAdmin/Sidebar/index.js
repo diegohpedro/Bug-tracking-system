@@ -7,10 +7,8 @@ export default function Sidebar() {
     return(
         <aside id='sidebar'>
             <nav>
-                <Link to='/tarefas' >Tarefas</Link>
-                <Link to='/novochamado' >Novo chamado</Link>
-                <Link to='/perfil' >Meu perfil</Link>
-                <Link to='/ajuda' >Ajuda</Link>
+                <Link to='/admin/dashboard' >Dashboard</Link>
+                <Link to='/admin/tarefas' >Tarefas</Link>
             </nav>
         </aside>
     )

@@ -2,19 +2,18 @@ import React from 'react';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
-import './style.css';
-
-export default function NovoChamado() {
+export default function Tarefa() {
     return(
-        <section id='novo-chamado'>
+        <section id='tarefa-admin'>
             <Sidebar />
             <main>
                 <ConteudoHeader 
-                    titulo='Novo chamado' 
-                    descricao='Página para abrir novo chamado.'
+                    titulo='Tarefa' 
+                    descricao='Tarefa específica.'
                 />
-            </main>
 
+                <h1>Tarefa específica</h1>
+            </main>
         </section>
     )
 }

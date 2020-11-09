@@ -4,17 +4,18 @@ import ConteudoHeader from '../ConteudoHeader';
 
 import './style.css';
 
-export default function Ajuda() {
+export default function DashboardAdmin() {
     return(
-        <section id='ajuda'>
+        <section id='dashboard-admin'>
             <Sidebar />
             <main>
                 <ConteudoHeader 
-                    titulo='Ajuda' 
-                    descricao='Página de ajuda ao usuário.'
+                    titulo='Dashboard Admin' 
+                    descricao='Página de dashboard.'
                 />
-            </main>
 
+                <h1>Dashboard</h1>
+            </main>
         </section>
     )
 }

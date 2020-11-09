@@ -5,7 +5,7 @@ import CardChamado from '../Cards-Chamado/card-chamado';
 
 import './style.css';
 
-export default function MeusChamadas() {
+export default function DashboardCliente() {
     return (
         <section id='tarefas'>
             <SidebarCliente />

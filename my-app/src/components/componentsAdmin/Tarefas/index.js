@@ -2,19 +2,18 @@ import React from 'react';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
-import './style.css';
-
 export default function Tarefas() {
     return(
-        <section id='tarefas'>
+        <section id='tarefas-admin'>
             <Sidebar />
             <main>
                 <ConteudoHeader 
                     titulo='Tarefas' 
-                    descricao='Veja as tarefas concluídas, não concluídas e em progresso.'
+                    descricao='Página para abrir novo chamado.'
                 />
-            </main>
 
+                <h1>Tarefas</h1>
+            </main>
         </section>
     )
 }
