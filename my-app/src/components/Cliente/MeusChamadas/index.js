@@ -20,7 +20,7 @@ export default function MeusChamadas() {
 
                 <section className='row-inputbusca'>
                     <label>Ex.(bug na pagina inicial)</label>
-                    <input type="text" className='inputbusca' placeholder='Procurar'/>
+                    <input type="search" className='inputbusca' placeholder='Procurar'/>
                     <button type="submit" className="btn-buscar">Buscar</button>
                 </section>
 

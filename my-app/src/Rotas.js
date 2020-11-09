@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Inicio from './components/Inicio';
 import Tarefas from './components/Tarefas';
-import NovoChamado from './components/NovoChamado';
+import NovoChamado from './components/Cliente/NovoChamado';
 import Perfil from './components/Perfil';
 import Ajuda from './components/Ajuda';
 import Login from './components/Login';

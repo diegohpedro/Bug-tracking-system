@@ -1,15 +1,5 @@
-/* .card-chamado{
-  width: 100%;
-  max-width: 200px;
-  height: 100px;
-  box-sizing: border-box;
-  text-align: center;
-  display: inline-block;
-  margin: 5%
-} */
-
 .cardchamado{
-  width: 100%;
+  width: 98%;
   max-width: 1000px;
   padding:10px;
   box-sizing: border-box;
@@ -17,4 +7,5 @@
   border-radius: 10px;
   margin-left: 10%;
   margin: 5px
+  
 }

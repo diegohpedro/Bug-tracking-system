@@ -8,7 +8,9 @@
   box-sizing: border-box;
   text-align: center;
   display: inline-block;
-  margin: 5%
+  margin: 2%;
+  margin-left: 3%;
+
 }
 
 .card-kamban-body{
