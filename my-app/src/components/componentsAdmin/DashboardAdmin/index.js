@@ -4,17 +4,18 @@ import ConteudoHeader from '../ConteudoHeader';
 
 import './style.css';
 
-export default function NovoChamado() {
+export default function DashboardAdmin() {
     return(
-        <section id='novo-chamado'>
+        <section id='dashboard-admin'>
             <Sidebar />
             <main>
                 <ConteudoHeader 
-                    titulo='Novo chamado' 
-                    descricao='Página para abrir novo chamado.'
+                    titulo='Dashboard Admin' 
+                    descricao='Página de dashboard.'
                 />
-            </main>
 
+                <h1>Dashboard</h1>
+            </main>
         </section>
     )
 }

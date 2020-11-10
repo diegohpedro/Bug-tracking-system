@@ -3,7 +3,7 @@ import './style.css'
 
 export default function Login() {
   return (
-    <section className="container">
+    <section className="container-login">
 
       <div className='login-content'>
 
@@ -14,7 +14,7 @@ export default function Login() {
         <form className="login-form">
           <div className='row'>
             <label htmlFor="inputUser">Usruario</label>
-            <input
+            <input className="input-login"
               type="text"
               id="inputUser"
               name="user"
@@ -22,7 +22,7 @@ export default function Login() {
           </div>
           <div className='row'>
             <label htmlFor="inputPassword" >Password</label>
-            <input
+            <input className="input-login"
               type="password"
               id="inputPassword"
               name="password"
