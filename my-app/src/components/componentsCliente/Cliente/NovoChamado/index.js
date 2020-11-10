@@ -2,9 +2,11 @@ import React, {useState} from 'react';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
+import api from "../../../../services/api";
+
 import './style.css';
 
-export default function NovoChamado() {
+export default function NovoChamado(props) {
     const [assunto, setAssunto] = useState('');
     const [descricao, setDescricao] = useState('');
     const [nome, setNome] = useState('');
@@ -12,21 +14,26 @@ export default function NovoChamado() {
     const [telefone, setTelefone] = useState('');
     const [categoria, setCategoria] = useState('');
 
-    function submeter(event) {
+    async function submeter(event) {
         event.preventDefault();
+        
+        const body = {
+            assunto,
+            descricao,
+            nome,
+            email,
+            telefone,
+            categoria,
+            date: new Date()
+        }
 
-        console.log('Assunto: ', assunto);
-        console.log('descricao: ', descricao);
-        console.log('nome: ', nome);
-        console.log('email: ', email);
-        console.log('telefone: ', telefone);
-        console.log('telefone: ', telefone);
-        console.log('categoria: ', categoria);
+        await api.post('http://localhost:5000/novochamado', body);
+
     }
 
 
     return (
-        <section id='novo-chamado'>
+        <section id='conteudo'>
             <Sidebar />
             <main>
                 <section>

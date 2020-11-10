@@ -8,7 +8,7 @@ import './style.css';
 
 export default function DashboardAdmin() {
     return(
-        <section id='dashboard-admin'>
+        <section id='conteudo'>
             <Sidebar />
             <main>
                 <ConteudoHeader 

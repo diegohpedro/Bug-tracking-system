@@ -2,9 +2,9 @@ import React from 'react';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
-export default function Tarefa() {
+export default function TarefaAdmin() {
     return(
-        <section id='tarefa-admin'>
+        <section id='conteudo'>
             <Sidebar />
             <main>
                 <ConteudoHeader 

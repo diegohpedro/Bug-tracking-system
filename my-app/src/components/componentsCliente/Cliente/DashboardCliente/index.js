@@ -1,13 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import SidebarCliente from '../Sidebar';
 import CardKamban from '../Cards-Kamban/card-kamban';
 import CardChamado from '../Cards-Chamado/card-chamado';
 
+import api from '../../../../services/api';
+
 import './style.css';
 
 export default function DashboardCliente() {
+    const [tarefas, setTarefas] = useState([]);
+
+    useEffect(() => {
+        api.get('/dashboard').then(response => {
+            setTarefas(response.data);
+        });
+    }, []);
+
+    function mostrarTarefas() {
+        console.log(tarefas);
+    }
+
     return (
-        <section id='tarefas'>
+        <section id='conteudo'>
             <SidebarCliente />
             <main >
                 
@@ -21,7 +35,7 @@ export default function DashboardCliente() {
                 <section className='row-inputbusca'>
                     <label>Ex.(bug na pagina inicial)</label>
                     <input type="search" className='inputbusca' placeholder='Procurar'/>
-                    <button type="submit" className="btn-buscar">Buscar</button>
+                    <button type="submit" className="btn-buscar" onClick={mostrarTarefas}>Buscar</button>
                 </section>
 
                 
@@ -29,12 +43,9 @@ export default function DashboardCliente() {
 
                     <h3 >Meus Chamados</h3>
 
-                    <CardChamado  />
-                    <CardChamado  />
-                    <CardChamado  />
-                    <CardChamado  />
-                    <CardChamado  />
-                    <CardChamado  />
+                    {tarefas.map(tarefa => {
+                        return <CardChamado key={tarefa._id} id={tarefa._id} assunto={tarefa.assunto} />
+                    })}
                 </section>
 
             </main>

@@ -4,3 +4,11 @@
     margin: 0;
     padding: 0;
 }
+
+#conteudo {
+    display: flex;
+}
+
+#conteudo main {
+    width: 100%;
+}

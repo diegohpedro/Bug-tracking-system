@@ -4,7 +4,7 @@ import ConteudoHeader from '../ConteudoHeader'
 
 export default function Tarefas() {
     return(
-        <section id='tarefas-admin'>
+        <section id='conteudo'>
             <Sidebar />
             <main>
                 <ConteudoHeader 
@@ -12,7 +12,7 @@ export default function Tarefas() {
                     descricao='Página para abrir novo chamado.'
                 />
 
-                <h1>Tarefas</h1>
+                
             </main>
         </section>
     )

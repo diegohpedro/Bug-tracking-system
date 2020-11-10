@@ -19,11 +19,11 @@ connection.once('open', () => {
  console.log("Conexão com MongoDB estabelecida")
 })
 
-const usuariosRouter= require('./routes/usuarios');
-const bugsRouter= require('./routes/bugs');
+const usuariosRouter= require('./routes/usuario');
+const bugsRouter= require('./routes/rotasCliente');
 
 app.use('/usuarios', usuariosRouter);
-app.use('/bugs', bugsRouter);
+app.use(bugsRouter);
 
 
 app.listen (port, () => {

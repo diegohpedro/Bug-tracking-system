@@ -2,11 +2,9 @@ import React from 'react';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
-import './style.css';
-
 export default function Perfil() {
     return(
-        <section id='perfil'>
+        <section id='conteudo'>
             <Sidebar />
             <main>
                 <ConteudoHeader 
