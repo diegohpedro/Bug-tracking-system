@@ -8,7 +8,10 @@ export default function Sidebar() {
         <aside id='sidebar'>
             <nav>
                 <Link to='/admin/dashboard' >Dashboard</Link>
-                <Link to='/admin/tarefas' >Tarefas</Link>
+                <Link to='/admin/tarefas' >Tarefas</Link>  
+                <Link to='/admin/cadastro' >Cadastro</Link>
+                <Link to='/admin/perfil' >Perfil</Link>
+
             </nav>
         </aside>
     )
