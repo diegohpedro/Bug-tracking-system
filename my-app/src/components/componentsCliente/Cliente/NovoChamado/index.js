@@ -1,10 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
 import './style.css';
 
 export default function NovoChamado() {
+    const [assunto, setAssunto] = useState('');
+    const [descricao, setDescricao] = useState('');
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [telefone, setTelefone] = useState('');
+    const [categoria, setCategoria] = useState('');
+
+    function submeter(event) {
+        event.preventDefault();
+
+        console.log('Assunto: ', assunto);
+        console.log('descricao: ', descricao);
+        console.log('nome: ', nome);
+        console.log('email: ', email);
+        console.log('telefone: ', telefone);
+        console.log('telefone: ', telefone);
+        console.log('categoria: ', categoria);
+    }
+
+
     return (
         <section id='novo-chamado'>
             <Sidebar />
@@ -20,30 +40,30 @@ export default function NovoChamado() {
                     <section className='form-principal' >
                         <div >
                             <label>Assunto do chamado</label>
-                            <input type="text" placeholder='Digite o assunto'/>
+                            <input type="text" value={assunto} onChange={event => setAssunto(event.target.value)} placeholder='Digite o assunto'/>
                         </div>
                         <label>Descrição do chamado</label>
                         <div>
-                            <textarea placeholder='Digite aqui a descrição'  />
+                            <textarea value={descricao} onChange={event => setDescricao(event.target.value)} placeholder='Digite aqui a descrição'  />
                         </div>
                     </section>
 
                     <section className='form-secundario'>
                         <div>
                             <label>Nome para contato</label>
-                            <input type="text" />
+                            <input value={nome} onChange={event => setNome(event.target.value)}type="text" />
                         </div>
                         <div>
                             <label>E-mail</label>
-                            <input type="email" />
+                            <input value={email} onChange={event => setEmail(event.target.value)}type="email" />
                         </div>
                         <div>
                             <label>Telefone</label>
-                            <input type="number" />
+                            <input value={telefone} onChange={event => setTelefone(event.target.value)}type="number" />
                         </div>
                         <div>
                             <label>Categoria do bug</label>
-                            <select  >
+                            <select value={categoria} onChange={event => setCategoria(event.target.value)} >
                                 <option value="bug-1">bug-1</option>
                                 <option value="bug-2">bug-2</option>
                                 <option value="bug-3">bug-3</option>
@@ -52,7 +72,7 @@ export default function NovoChamado() {
                         </div>
                         <div className='btn'>
                             <button id='btn-cancelar'>Cancelar</button>
-                            <button id='btn-criarchamado'>Criar Chamado</button>
+                            <button id='btn-criarchamado' type='submit' onClick={submeter}>Criar Chamado</button>
                         </div>
                     </section>
 
