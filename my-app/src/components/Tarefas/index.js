@@ -14,10 +14,10 @@ export default function Tarefas() {
                     titulo='Tarefas' 
                     descricao='Veja as tarefas concluídas, não concluídas e em progresso.'
                 />
-                <CardsKamban cor='card-meuschamados-agente' value='Chamados' name='Meus Chamados' />
-                <CardsKamban cor='card-test' value='Chamados' name='Meus Chamados' />
-                <CardsKamban cor='card-meuschamados-agente' value='Chamados' name='Meus Chamados' />
-                <CardsKamban cor='card-meuschamados-agente' value='Chamados' name='Meus Chamados' />
+                <CardsKamban cor='card-ticketcriado' value='Criados' name='Tickets Criados' />
+                <CardsKamban cor='card-ticketsemresposta' value='Sem resposta' name='Ticket sem resposta' />
+                <CardsKamban cor='card-ticketandamento' value='Em andamento' name='Tickets em andamento' />
+                <CardsKamban cor='card-ticketconcluido' value='Concluidos' name='Tickets Concluidos' />
                 <CardsChamado/>
                 <CardsChamado/>
                 <CardsChamado/>

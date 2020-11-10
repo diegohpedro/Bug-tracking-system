@@ -16,7 +16,7 @@
   height: 80%;
   align-items: center;
   padding: 25px;
-  font-size: 1.6rem
+  font-size: 1.3rem
 }
 
 .card-meuschamados{
@@ -47,13 +47,27 @@
   height: 100%;
   border: 1px solid  rgb(248, 245, 41);
 }
-.card-test{
-  background-color: purple;
-}
-.card-meuschamados-agente{
+/*------*/
+.card-ticketcriado{
   background-color: rgb(16, 165, 245);
   width: 100%;
   height: 100%;
-  border: 1px solid  rgb(0, 162, 255);
+}
+.card-ticketsemresposta{
+  background-color: rgb(245, 16, 16);
+  width: 100%;
+  height: 100%;
+
 }
 
+.card-ticketandamento{
+  background-color: rgb(241, 245, 16);
+  width: 100%;
+  height: 100%;
+
+}
+.card-ticketconcluido{
+  background-color: rgb(81, 245, 16);
+  width: 100%;
+  height: 100%;
+}
