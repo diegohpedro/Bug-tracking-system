@@ -1,8 +1,8 @@
-#tarefas {
+#tarefas-admin {
     display: flex;
 }
 
-#tarefas main {
+#tarefas-admin main {
     width: 100%;
 }
 

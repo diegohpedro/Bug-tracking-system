@@ -20,7 +20,6 @@ export default function NovoChamado() {
         console.log('nome: ', nome);
         console.log('email: ', email);
         console.log('telefone: ', telefone);
-        console.log('telefone: ', telefone);
         console.log('categoria: ', categoria);
     }
 
