@@ -10,6 +10,7 @@ import Registro from './components/Registro';
 
 import DashboardCliente from './components/componentsCliente/Cliente/DashboardCliente';
 import Perfil from './components/componentsCliente/Cliente/Perfil';
+import TarefaCliente from './components/componentsCliente/Cliente/TarefaCliente';
 import Ajuda from './components/componentsCliente/Cliente/Ajuda';
 
 import DashboardAdmin from './components/componentsAdmin/DashboardAdmin';
@@ -35,6 +36,7 @@ export default function Rotas() {
                 <Route path='/dashboard' component={DashboardCliente}/>
                 <Route path='/novochamado' component={NovoChamado}/>
                 <Route path='/perfil' component={Perfil}/>
+                <Route path='/tarefa/:id' component={TarefaCliente}/>
                 <Route path='/ajuda' component={Ajuda}/>
 
                 {/* Rotas do admin  */}
