@@ -13,7 +13,7 @@ export default function Login() {
 
         <form className="login-form">
           <div className='row'>
-            <label htmlFor="inputUser">Usruario</label>
+            <label htmlFor="inputUser">Usuário</label>
             <input className="input-login"
               type="text"
               id="inputUser"
@@ -21,7 +21,7 @@ export default function Login() {
             />
           </div>
           <div className='row'>
-            <label htmlFor="inputPassword" >Password</label>
+            <label htmlFor="inputPassword" >Senha</label>
             <input className="input-login"
               type="password"
               id="inputPassword"
@@ -29,7 +29,7 @@ export default function Login() {
             />
           </div>
           <div className='row'>
-            <button type="submit" className="btn-login">Logar</button>
+            <button type="submit" className="btn-login">Entrar</button>
           </div>
 
         </form>

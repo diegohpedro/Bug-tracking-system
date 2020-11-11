@@ -17,6 +17,8 @@ import Tarefas from './components/componentsAdmin/Tarefas';
 import TarefaAdmin from './components/componentsAdmin/TarefaAdmin'; 
 import PerfilAdmin from './components/componentsAdmin/PerfilAdmin';
 import Cadastro from './components/componentsAdmin/Cadastro';
+import Usuarios from './components/componentsAdmin/Usuarios';
+import Usuario from './components/componentsAdmin/Usuario';
 
 import './style.css';
 
@@ -41,6 +43,8 @@ export default function Rotas() {
                 <Route path='/admin/tarefa/:id' component={TarefaAdmin}/>
                 <Route path='/admin/perfil' component={PerfilAdmin}/>
                 <Route path='/admin/cadastro' component={Cadastro}/>
+                <Route path='/admin/usuarios' component={Usuarios}/>
+                <Route path='/admin/usuario/:id' component={Usuario}/>
 
             </Switch>
         </BrowserRouter> 

@@ -27,7 +27,7 @@ export default function NovoChamado(props) {
             date: new Date()
         }
 
-        await api.post('http://localhost:5000/novochamado', body);
+        await api.post('/novochamado', body);
 
     }
 
