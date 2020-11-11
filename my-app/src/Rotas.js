@@ -11,11 +11,12 @@ import Registro from './components/Registro';
 import DashboardCliente from './components/componentsCliente/Cliente/DashboardCliente';
 import Perfil from './components/componentsCliente/Cliente/Perfil';
 import Ajuda from './components/componentsCliente/Cliente/Ajuda';
-import TarefaCliente from './components/componentsCliente/Cliente/TarefaCliente';
 
 import DashboardAdmin from './components/componentsAdmin/DashboardAdmin';
 import Tarefas from './components/componentsAdmin/Tarefas';
-import TarefaAdmin from './components/componentsAdmin/TarefaAdmin';
+import TarefaAdmin from './components/componentsAdmin/TarefaAdmin'; 
+import PerfilAdmin from './components/componentsAdmin/PerfilAdmin';
+import Cadastro from './components/componentsAdmin/Cadastro';
 
 import './style.css';
 
@@ -31,15 +32,16 @@ export default function Rotas() {
                 {/* Rotas do cliente */}
                 <Route path='/dashboard' component={DashboardCliente}/>
                 <Route path='/novochamado' component={NovoChamado}/>
-                <Route path='/tarefa/:id' component={TarefaCliente}/> 
                 <Route path='/perfil' component={Perfil}/>
                 <Route path='/ajuda' component={Ajuda}/>
 
                 {/* Rotas do admin  */}
                 <Route path='/admin/dashboard' component={DashboardAdmin}/>
                 <Route path='/admin/tarefas' component={Tarefas}/>
-                <Route path='/admin/tarefa/:id' component={TarefaAdmin}/> 
-               
+                <Route path='/admin/tarefa/:id' component={TarefaAdmin}/>
+                <Route path='/admin/perfil' component={PerfilAdmin}/>
+                <Route path='/admin/cadastro' component={Cadastro}/>
+
             </Switch>
         </BrowserRouter> 
     )
