@@ -13,14 +13,4 @@ router.route('/usuario/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 })
 
-router.route('/cadastro').post ((req,res) => {
-    const {nome, senha, email, tipo} = req.body;
-
-    const novoUsuario = new Usuarios({nome, senha, email, tipo});
-
-    novoUsuario.save()
-    .then(()=> res.json('Usuário Adicionado'))
-    .catch(err => res.status(400).json("Erro: " + err))
-})
-
 module.exports= router;

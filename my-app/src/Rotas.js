@@ -1,13 +1,13 @@
+import {isAuthenticated} from './services/auth';
 import React from 'react';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
-import NovoChamado from './components/componentsCliente/Cliente/NovoChamado';
-
-
+import './style.css';
 
 import Login from './components/Login';
 import Registro from './components/Registro';
 
+import NovoChamado from './components/componentsCliente/Cliente/NovoChamado';
 import DashboardCliente from './components/componentsCliente/Cliente/DashboardCliente';
 import Perfil from './components/componentsCliente/Cliente/Perfil';
 import TarefaCliente from './components/componentsCliente/Cliente/TarefaCliente';
@@ -21,19 +21,26 @@ import Cadastro from './components/componentsAdmin/Cadastro';
 import Usuarios from './components/componentsAdmin/Usuarios';
 import Usuario from './components/componentsAdmin/Usuario';
 
-import './style.css';
+const PrivateRoute = ({component: Component, ...rest}) => (
+    <Route {...rest} render={props => (
+        isAuthenticated() ? (
+            <Component {...props} />
+        ) : (
+            <Redirect to={{ pathname: '/', state: { from: props.location}}} />
+        )
+    )} />
+)
 
 export default function Rotas() {
     return(
         <BrowserRouter>
             <Switch>
-
                 
                 <Route exact path='/' component={Login}/>
-                <Route path='/registro' component={Registro}/>
+                <Route path='/cadastro' component={Registro}/>
 
                 {/* Rotas do cliente */}
-                <Route path='/dashboard' component={DashboardCliente}/>
+                <PrivateRoute path='/dashboard' component={DashboardCliente}/>
                 <Route path='/novochamado' component={NovoChamado}/>
                 <Route path='/perfil' component={Perfil}/>
                 <Route path='/tarefa/:id' component={TarefaCliente}/>

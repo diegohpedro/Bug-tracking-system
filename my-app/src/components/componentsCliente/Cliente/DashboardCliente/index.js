@@ -8,16 +8,17 @@ import api from '../../../../services/api';
 import './style.css';
 
 export default function DashboardCliente() {
-    const [tarefas, setTarefas] = useState([]);
+    const [chamados, setChamados] = useState([]);
 
     useEffect(() => {
-        api.get('/dashboard').then(response => {
-            setTarefas(response.data);
-        });
+        
+        api.get('/dashboard').then(res => {
+            setChamados(res.data)
+        }).catch(err => console.log(err));
     }, []);
 
-    function mostrarTarefas() {
-        console.log(tarefas);
+    function mostrarChamados() {
+        console.log(chamados);
     }
 
     return (
@@ -35,7 +36,7 @@ export default function DashboardCliente() {
                 <section className='row-inputbusca'>
                     <label>Ex.(bug na pagina inicial)</label>
                     <input type="search" className='inputbusca' placeholder='Procurar'/>
-                    <button type="submit" className="btn-buscar" onClick={mostrarTarefas}>Buscar</button>
+                    <button type="submit" className="btn-buscar" onClick={mostrarChamados}>Buscar</button>
                 </section>
 
                 
@@ -43,9 +44,9 @@ export default function DashboardCliente() {
 
                     <h3 >Meus Chamados</h3>
 
-                    {tarefas.map(tarefa => {
+                    {/* {tarefas.map(tarefa => {
                         return <CardChamado key={tarefa._id} id={tarefa._id} assunto={tarefa.assunto} />
-                    })}
+                    })} */}
                 </section>
 
             </main>
