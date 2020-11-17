@@ -9,10 +9,12 @@ export default function CardChamado(props) {
     <div className="cardchamado">
       <div className={cor} >
         <div className="cardchamado-body">
+            <h1>{props.status}</h1>
+            <h1>{props.usuarioId}</h1>
             <p>
               {props.assunto}
             </p>
-            <Link to={`/tarefa/${props.id}`}>Ver</Link>
+            <Link to={`/chamado/${props.id}`}>Ver</Link>
           
         </div>
       </div>

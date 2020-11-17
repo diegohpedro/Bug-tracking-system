@@ -44,9 +44,9 @@ export default function DashboardCliente() {
 
                     <h3 >Meus Chamados</h3>
 
-                    {/* {tarefas.map(tarefa => {
-                        return <CardChamado key={tarefa._id} id={tarefa._id} assunto={tarefa.assunto} />
-                    })} */}
+                    {chamados.map(chamado => {
+                        return <CardChamado key={chamado._id} id={chamado._id} assunto={chamado.assunto} />
+                    })}
                 </section>
 
             </main>

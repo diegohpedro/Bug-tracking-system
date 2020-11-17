@@ -13,7 +13,7 @@ router.get('/dashboard', async (req, res) => {
     try {
         const chamados = await Chamado.find().populate('usuario');
 
-        return res.send({chamados});
+        return res.send(chamados);
     } catch (err) {
         return res.status(400).send({erro: 'Erro na requisição'});
     }
@@ -25,7 +25,7 @@ router.post('/novochamado', async (req,res) => {
 
         const chamado = await Chamado.create({assunto, descricao, usuario: req.userId});
 
-        return res.send({chamado});
+        return res.send(chamado);
 
     } catch {
         return res.status(400).send({erro: 'Erro ao criar chamado.'})
@@ -50,7 +50,7 @@ router.put('/chamado/:id', async(req, res) => {
             assunto, 
             descricao}, {new: true});
 
-        return res.send({chamado});
+        return res.send(chamado);
 
     } catch {
         return res.status(400).send({erro: 'Erro na atualização.'})
