@@ -40,7 +40,7 @@ export default function Rotas() {
                 <Route path='/cadastro' component={Registro}/>
 
                 {/* Rotas do cliente */}
-                <PrivateRoute path='/dashboard' component={DashboardCliente}/>
+                <Route path='/dashboard' component={DashboardCliente}/>
                 <Route path='/novochamado' component={NovoChamado}/>
                 <Route path='/perfil' component={Perfil}/>
                 <Route path='/tarefa/:id' component={TarefaCliente}/>

@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth'); 
 const Usuario = require('../models/usuario');
 
+
 const router = express.Router();
 
 function generateToken(params = {}) {
@@ -12,6 +13,17 @@ function generateToken(params = {}) {
         expiresIn: 86400,
     });
 }
+
+router.post('/autenticar', async (req,res) => {
+    try {
+
+        const token = res.headers.authorization; 
+
+        return res.send({token});
+    } catch {
+        return res.status(400).send({erro: 'Erro /autenticar'})
+    }
+})
 
 router.post('/', async (req, res) => {
     const {email, senha} = req.body;

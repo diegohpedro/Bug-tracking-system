@@ -7,7 +7,7 @@ const BlackList = require('../models/blacklist');
 
 const router = express.Router();
 
-router.use(authMiddleware);
+/* router.use(authMiddleware); */
 
 router.get('/dashboard', async (req, res) => {
     try {
@@ -16,15 +16,6 @@ router.get('/dashboard', async (req, res) => {
         return res.send({chamados});
     } catch (err) {
         return res.status(400).send({erro: 'Erro na requisição'});
-    }
-});
-
-router.get('/autenticar', async (req, res) => {
-    try {
-
-        return res.send({sucess: 'Autenticado'});
-    } catch (err) {
-        return res.status(400).send({erro: 'Erro /autenticar'});
     }
 });
 
