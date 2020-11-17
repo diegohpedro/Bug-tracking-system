@@ -10,7 +10,7 @@ export default function CardChamado(props) {
       <div className={cor} >
         <div className="cardchamado-body">
             <h1>{props.status}</h1>
-            <h1>{props.usuarioId}</h1>
+            <h1>{props.nomeUsuario}</h1>
             <p>
               {props.assunto}
             </p>

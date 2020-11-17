@@ -7,9 +7,7 @@ async function checarToken (token) {
 }
 
 module.exports = async (req, res, next) => {
-    const authHeader = req.headers;
-
-    console.log(authHeader);
+    const authHeader = req.headers.authorization;
 
     /* if(!authHeader)
         return res.status(401).send({erro: 'Token não foi informado'});
