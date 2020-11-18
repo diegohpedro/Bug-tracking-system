@@ -21,7 +21,6 @@ export default function PerfilAdmin() {
             setNome(res.data.nome)
             setEmail(res.data.email)
         }).catch(err => {
-            alert('Você precisa estar logado.')
             return history.push('/');
         })
     }, []);

@@ -9,10 +9,10 @@ export default function CardChamado(props) {
     <div className="cardchamado-agente" >
       <div className={cor} >
         <div className="cardchamado-body">
-          <div className="cardchamado-descricao">Descrição</div>
-          <div className="cardchamado-nivel">Nivel</div>
-          <div className="cardchamado-autor">Autor</div>
-          <div className="cardchamado-estado">Estado</div>
+          <div className="cardchamado-descricao">{props.assunto}</div>
+          {/* <div className="cardchamado-nivel">{props.status}</div> */}
+          <div className="cardchamado-autor">{props.nomeUsuario}</div>
+          <div className="cardchamado-estado">{props.status}</div>
 
         </div>
       </div>
