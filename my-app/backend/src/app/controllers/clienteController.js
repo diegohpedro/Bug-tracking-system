@@ -4,16 +4,17 @@ const authMiddleware = require('../middlewares/auth');
 
 const Chamado = require('../models/chamado');
 const BlackList = require('../models/blacklist');
+const Usuario = require('../models/usuario');
 
 const router = express.Router();
 
-/* router.use(authMiddleware); */
+router.use(authMiddleware);
 
 router.get('/dashboard', async (req, res) => {
     try {
         const chamados = await Chamado.find().populate('usuario');
 
-        return res.send(chamados);
+        return res.send({chamados, usuarioId: req.userId});
     } catch (err) {
         return res.status(400).send({erro: 'Erro na requisição'});
     }
@@ -41,6 +42,18 @@ router.get('/chamado/:id', async(req, res) => {
         res.status(400).send({erro: 'Nenhum chamado encontrado'})
     }
 });
+
+router.get('/perfil', async (req, res) => {
+    try {
+        
+        const usuario = await Usuario.findById(req.userId);
+        
+        res.send(usuario); 
+    } catch (err) {
+        res.send(err)
+    }
+
+})
 
 router.put('/chamado/:id', async(req, res) => {
     try {

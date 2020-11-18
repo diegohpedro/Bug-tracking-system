@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import SidebarCliente from '../Sidebar';
 import CardKamban from '../Cards-Kamban/card-kamban';
 import CardChamado from '../Cards-Chamado/card-chamado';
@@ -8,13 +9,23 @@ import api from '../../../../services/api';
 import './style.css';
 
 export default function DashboardCliente() {
+    const history = useHistory();
+    const [usuarioId, setUsuarioId] = useState('');
     const [chamados, setChamados] = useState([]);
 
     useEffect(() => {
         
-        api.get('/dashboard').then(res => {
-            setChamados(res.data)
-        }).catch(err => console.log(err));
+        api.get('/dashboard', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+        }).then(res => {
+            setChamados(res.data.chamados);
+            setUsuarioId(res.data.usuarioId);
+        }).catch(err => {
+            alert('Você precisa estar logado para acessar o dashboard.')
+            return history.push('/');
+        });
     }, []);
 
     function mostrarChamados() {
@@ -45,7 +56,9 @@ export default function DashboardCliente() {
                     <h3 >Meus Chamados</h3>
 
                     {chamados.map(chamado => {
-                        return <CardChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario='Teste usuario' assunto={chamado.assunto} />
+                        if(chamado.usuario._id === usuarioId) {
+                            return <CardChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
+                        }
                     })}
                 </section>
 

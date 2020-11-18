@@ -1,25 +1,38 @@
 const express= require ('express');
-const router = express.Router();
 
+const router = express.Router();
 const authMiddleware = require('../middlewares/auth');
 
 const Projeto = require('../models/projeto');
 const Tarefa = require('../models/tarefa');
 const Chamado = require('../models/chamado');
+const Usuario = require('../models/usuario');
 
-router.use(authMiddleware);
+router.get('/autenticar', authMiddleware, async (req,res) => {
+    try {
 
-router.get('/dashboard', async (req, res) => {
+        const usuario = await Usuario.findOne({_id: req.userId})
+
+        if(!usuario.admin)
+            return res.status(401).send({erro: 'Usuário não é um admin'})
+
+        res.send(usuario);
+    } catch (err) {
+        res.send(err)
+    }
+})
+
+router.get('/dashboard',authMiddleware, async (req, res) => {
     try {
         const chamados = await Chamado.find().populate('usuario');
 
-        return res.send({chamados})
+        return res.send(chamados)
     } catch (err) {
         return res.status(400).send({erro: 'Erro na requisição'});
     }
 });
 
-router.get('/projetos', async(req,res) => {
+router.get('/projetos',authMiddleware, async(req,res) => {
     try {
         const projetos = await Projeto.find().populate(['usuario', 'tarefas']);
 
@@ -29,7 +42,7 @@ router.get('/projetos', async(req,res) => {
     }
 })
 
-router.post('/novoprojeto', async (req,res) => {
+router.post('/novoprojeto',authMiddleware, async (req,res) => {
     try {
         const {assunto, descricao, tarefas } = req.body;
 
@@ -52,7 +65,7 @@ router.post('/novoprojeto', async (req,res) => {
     }
 });
 
-router.get('/projeto/:id', async(req, res) => {
+router.get('/projeto/:id',authMiddleware, async(req, res) => {
     try {
         const projeto = await Projeto.findById(req.params.id).populate(['usuario', 'tarefas']);
         
@@ -62,7 +75,7 @@ router.get('/projeto/:id', async(req, res) => {
     }
 });
 
-router.put('/projeto/:id', async(req, res) => {
+router.put('/projeto/:id',authMiddleware, async(req, res) => {
     try {
         const {assunto, descricao, tarefas } = req.body;
 
@@ -90,7 +103,7 @@ router.put('/projeto/:id', async(req, res) => {
     }
 }); 
 
-router.delete('/projeto/:id', async(req, res) => {
+router.delete('/projeto/:id',authMiddleware, async(req, res) => {
     try {
         await Projeto.deleteOne({_id: req.params.id})
 

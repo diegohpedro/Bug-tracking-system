@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
@@ -7,8 +8,23 @@ import api from "../../../../services/api";
 import './style.css';
 
 export default function NovoChamado(props) {
+    const history = useHistory();
+    const [usuarioId, setUsuarioId] = useState('');
     const [assunto, setAssunto] = useState('');
     const [descricao, setDescricao] = useState('');
+
+    useEffect(() => {
+        api.get('/autenticar', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+        }).then(res => {
+            setUsuarioId(res.data);
+        }).catch(err => {
+            alert('Você precisa estar logado.')
+            return history.push('/');
+        });
+    }, []);
 
     async function submeter(event) {
         event.preventDefault();
@@ -18,7 +34,10 @@ export default function NovoChamado(props) {
             descricao
         }
 
-        await api.post('/novochamado', body);
+        await api.post('/novochamado', body, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }});
 
     }
 

@@ -12,6 +12,7 @@ export default function Sidebar() {
                 <Link to='/admin/tarefas' >Tarefas</Link>  
                 <Link to='/admin/cadastro' >Cadastro</Link>
                 <Link to='/admin/usuarios' >Usuarios</Link>
+                <Link to='/admin/login' onClick={() => localStorage.clear()}>Sair</Link>
 
             </nav>
         </aside>

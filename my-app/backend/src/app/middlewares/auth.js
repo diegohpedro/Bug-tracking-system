@@ -9,7 +9,7 @@ async function checarToken (token) {
 module.exports = async (req, res, next) => {
     const authHeader = req.headers.authorization;
 
-    /* if(!authHeader)
+    if(!authHeader)
         return res.status(401).send({erro: 'Token não foi informado'});
     
     const parts = authHeader.split(' ');
@@ -31,5 +31,5 @@ module.exports = async (req, res, next) => {
         req.userId = decoded.id;
        
         return next();
-    }); */
+    });
 };

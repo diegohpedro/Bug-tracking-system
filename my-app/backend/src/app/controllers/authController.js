@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const authConfig = require('../config/auth'); 
 const Usuario = require('../models/usuario');
 
-
+const authMiddleware = require('../middlewares/auth');
 const router = express.Router();
 
 function generateToken(params = {}) {
@@ -14,16 +14,31 @@ function generateToken(params = {}) {
     });
 }
 
-router.post('/autenticar', async (req,res) => {
-    try {
-
-        const token = res.headers.authorization; 
-
-        return res.send({token});
-    } catch {
-        return res.status(400).send({erro: 'Erro /autenticar'})
-    }
+router.get('/autenticar', authMiddleware, async (req,res) => {
+    res.send(req.userId)
 })
+
+router.post('/admin/login', async (req, res) => {
+    const {email, senha} = req.body;
+ 
+    const usuario = await Usuario.findOne({email}).select('+senha');
+
+    if(!usuario)
+        return res.status(400).send({erro: 'Usuário não encontrado'});
+
+    if(!usuario.admin)
+        return res.status(401).send({erro: 'Usuário sem permissão'});
+
+    if(!await bcrypt.compare(senha, usuario.senha))
+        return res.status(400).send({erro: 'Senha inválida'});
+
+    usuario.senha = undefined;
+
+    res.send({
+        usuario, 
+        token: generateToken({id: usuario._id})
+    });
+});
 
 router.post('/', async (req, res) => {
     const {email, senha} = req.body;
@@ -56,7 +71,7 @@ router.post('/cadastro', async (req,res) => {
 
         return res.send({
             usuario,
-            token: generateToken()
+            token: generateToken({id: usuario._id})
         });
     } catch (err) {
         return res.status(400).send({Erro: 'Falha no registro.'});
