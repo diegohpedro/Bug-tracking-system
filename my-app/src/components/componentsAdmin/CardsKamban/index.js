@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css'
+
 
 export default function CardKamban(props) {
   let cor = props.cor
