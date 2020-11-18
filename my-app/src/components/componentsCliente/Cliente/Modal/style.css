@@ -9,14 +9,18 @@
   display:flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .container{
-  background-color: rgb(255, 4, 4);
+  background-color: rgb(248, 248, 248);
   color: #0000;
   width: 60%;
   height: 60%;
   border-radius: 20px;
+  position: absolute;
+  display: flex;
+  
 }
 
 
@@ -28,5 +32,47 @@
   border:none;
   right: 0%;
   cursor: pointer;
-  display: felx;
+  top:5px;
+  right: 5px;
+  font-size: 16px;
+}
+
+.assuntoModal{
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  padding: 10px;
+  
+}
+
+.descricaoModal{
+  width: 100%;
+  height: 80%;
+  max-width: 600px;
+  padding: 150px;
+  
+}
+
+.modal label{
+  color: rgb(0, 0, 0);
+  font-size: 1.6rem;
+}
+
+.content{
+  width: 100%;
+  height: 500px;
+  
+} 
+
+.coluna{
+  margin: 2%;
+  float: left;
+  width:100%;
+  max-width: 400px;
+}
+
+.nameModal, .emailModal, .statusModal {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
 }
