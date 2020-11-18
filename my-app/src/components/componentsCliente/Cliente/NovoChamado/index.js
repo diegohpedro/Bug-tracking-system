@@ -21,7 +21,6 @@ export default function NovoChamado(props) {
         }).then(res => {
             setUsuarioId(res.data);
         }).catch(err => {
-            alert('Você precisa estar logado.')
             return history.push('/');
         });
     }, []);

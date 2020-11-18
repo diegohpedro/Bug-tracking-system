@@ -1,5 +1,4 @@
-import {isAuthenticated} from './services/auth';
-import {AdminAuthenticated} from './services/authAdmin';
+import {ClientAuthenticated, AdminAuthenticated} from './services/auth';
 import React from 'react';
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
 
@@ -24,7 +23,7 @@ import Usuario from './components/componentsAdmin/Usuario';
 
 const PrivateRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={props => (
-        isAuthenticated() ? (
+        ClientAuthenticated() ? (
             <Component {...props} />
         ) : (
             <Redirect to={{ pathname: '/', state: { from: props.location}}} />

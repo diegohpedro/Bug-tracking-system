@@ -52,8 +52,7 @@ router.get('/perfil', async (req, res) => {
     } catch (err) {
         res.send(err)
     }
-
-})
+});
 
 router.put('/chamado/:id', async(req, res) => {
     try {

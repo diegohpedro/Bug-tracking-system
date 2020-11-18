@@ -23,7 +23,7 @@ export default function DashboardCliente() {
             setChamados(res.data.chamados);
             setUsuarioId(res.data.usuarioId);
         }).catch(err => {
-            alert('Você precisa estar logado para acessar o dashboard.')
+            
             return history.push('/');
         });
     }, []);

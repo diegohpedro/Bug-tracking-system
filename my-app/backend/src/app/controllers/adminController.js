@@ -26,9 +26,20 @@ router.get('/dashboard',authMiddleware, async (req, res) => {
     try {
         const chamados = await Chamado.find().populate('usuario');
 
-        return res.send(chamados)
+        return res.send(chamados);
     } catch (err) {
         return res.status(400).send({erro: 'Erro na requisição'});
+    }
+});
+
+router.get('/perfil',authMiddleware, async (req, res) => {
+    try {
+        
+        const usuario = await Usuario.findById(req.userId);
+        
+        res.send(usuario);
+    } catch (err) {
+        res.send(err);
     }
 });
 
