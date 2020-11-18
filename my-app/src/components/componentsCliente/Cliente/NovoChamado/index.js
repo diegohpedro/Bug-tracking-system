@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
@@ -7,27 +8,36 @@ import api from "../../../../services/api";
 import './style.css';
 
 export default function NovoChamado(props) {
+    const history = useHistory();
+    const [usuarioId, setUsuarioId] = useState('');
     const [assunto, setAssunto] = useState('');
     const [descricao, setDescricao] = useState('');
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [telefone, setTelefone] = useState('');
-    const [categoria, setCategoria] = useState('');
+
+    useEffect(() => {
+        api.get('/autenticar', {
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                }
+        }).then(res => {
+            setUsuarioId(res.data);
+        }).catch(err => {
+            alert('Você precisa estar logado.')
+            return history.push('/');
+        });
+    }, []);
 
     async function submeter(event) {
         event.preventDefault();
         
         const body = {
             assunto,
-            descricao,
-            nome,
-            email,
-            telefone,
-            categoria,
-            date: new Date()
+            descricao
         }
 
-        await api.post('/novochamado', body);
+        await api.post('/novochamado', body, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }});
 
     }
 
@@ -56,7 +66,7 @@ export default function NovoChamado(props) {
                     </section>
 
                     <section className='form-secundario'>
-                        <div>
+                        {/* <div>
                             <label>Nome para contato</label>
                             <input value={nome} onChange={event => setNome(event.target.value)}type="text" />
                         </div>
@@ -67,8 +77,8 @@ export default function NovoChamado(props) {
                         <div>
                             <label>Telefone</label>
                             <input value={telefone} onChange={event => setTelefone(event.target.value)}type="number" />
-                        </div>
-                        <div>
+                        </div> */}
+                        {/* <div>
                             <label>Categoria do bug</label>
                             <select value={categoria} onChange={event => setCategoria(event.target.value)} >
                                 <option value="bug-1">bug-1</option>
@@ -76,7 +86,7 @@ export default function NovoChamado(props) {
                                 <option value="bug-3">bug-3</option>
                                 <option value="bug-4">bug-4</option>
                             </select>
-                        </div>
+                        </div> */}
                         <div className='btn'>
                             <button id='btn-cancelar'>Cancelar</button>
                             <button id='btn-criarchamado' type='submit' onClick={submeter}>Criar Chamado</button>
