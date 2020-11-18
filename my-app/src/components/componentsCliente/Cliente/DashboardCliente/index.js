@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import SidebarCliente from '../Sidebar';
 import CardKamban from '../Cards-Kamban/card-kamban';
 import CardChamado from '../Cards-Chamado/card-chamado';
@@ -14,11 +14,11 @@ export default function DashboardCliente() {
     const [chamados, setChamados] = useState([]);
 
     useEffect(() => {
-        
+
         api.get('/dashboard', {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
         }).then(res => {
             setChamados(res.data.chamados);
             setUsuarioId(res.data.usuarioId);
@@ -36,7 +36,7 @@ export default function DashboardCliente() {
         <section id='conteudo'>
             <SidebarCliente />
             <main >
-                
+
                 <section className='row-cards'>
                     <CardKamban cor='card-meuschamados' value='Chamados' name='Meus Chamados' />
                     <CardKamban cor='card-atendimento' value='Atendendo ' name='Em Atendimento' />
@@ -46,17 +46,19 @@ export default function DashboardCliente() {
 
                 <section className='row-inputbusca'>
                     <label>Ex.(bug na pagina inicial)</label>
-                    <input type="search" className='inputbusca' placeholder='Procurar'/>
+                    <input type="search" className='inputbusca' placeholder='Procurar' />
                     <button type="submit" className="btn-buscar" onClick={mostrarChamados}>Buscar</button>
                 </section>
 
-                
+
                 <section className='row-cardchamado'>
 
                     <h3 >Meus Chamados</h3>
+                    
+
 
                     {chamados.map(chamado => {
-                        if(chamado.usuario._id === usuarioId) {
+                        if (chamado.usuario._id === usuarioId) {
                             return <CardChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
                         }
                     })}
