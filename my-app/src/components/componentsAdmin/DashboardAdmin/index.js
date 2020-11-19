@@ -24,7 +24,7 @@ export default function DashboardAdmin() {
             setChamados(res.data);
         }).catch(err => {
             localStorage.clear();
-            return history.push('/admin/login');
+            return history.push('/login');
         });
     }, []);
 

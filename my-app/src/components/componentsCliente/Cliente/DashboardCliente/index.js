@@ -12,6 +12,10 @@ export default function DashboardCliente() {
     const history = useHistory();
     const [usuarioId, setUsuarioId] = useState('');
     const [chamados, setChamados] = useState([]);
+    const [meusChamados, setMeusChamados] = useState([]);
+    const [chamadosAbertos, setChamadosAbertos] = useState([]);
+    const [chamadosProgresso, setChamadosProgresso] = useState([]);
+    const [chamadosFinalizados, setChamadosFinalizados] = useState([]);
 
     useEffect(() => {
 
@@ -21,7 +25,13 @@ export default function DashboardCliente() {
             }
         }).then(res => {
             setChamados(res.data.chamados);
-            setUsuarioId(res.data.usuarioId);
+            setUsuarioId(res.data.usuarioId)
+
+            setMeusChamados(chamados.filter(chamado => chamado.usuario._id === usuarioId));
+
+            setChamadosAbertos(meusChamados.filter(chamado => chamado.status === 1));
+            setChamadosProgresso(meusChamados.filter(chamado => chamado.status === 2));
+            setChamadosFinalizados(meusChamados.filter(chamado => chamado.status === 3));
         }).catch(err => {
             
             return history.push('/');
@@ -29,7 +39,7 @@ export default function DashboardCliente() {
     }, [chamados]);
 
     function mostrarChamados() {
-        console.log(chamados);
+        console.log(meusChamados);
     }
 
     return (
@@ -38,10 +48,10 @@ export default function DashboardCliente() {
             <main >
 
                 <section className='row-cards'>
-                    <CardKamban cor='card-meuschamados' value='Chamados' name='Meus Chamados' />
-                    <CardKamban cor='card-atendimento' value='Atendendo ' name='Em Atendimento' />
-                    <CardKamban cor='card-verificacliente' value='Verifica ' name='Verificação do Cliente' />
-                    <CardKamban cor='card-finalizado' value='Finalizados ' name='finalizados' />
+                    <CardKamban cor='card-meuschamados' quantidade={meusChamados.length} value='Chamados' name='Meus Chamados' />
+                    <CardKamban cor='card-atendimento' quantidade={chamadosAbertos.length} name='Aberto' />
+                    <CardKamban cor='card-verificacliente' quantidade={chamadosProgresso.length} name='Em progresso' />
+                    <CardKamban cor='card-finalizado' quantidade={chamadosFinalizados.length} name='Finalizados' />
                 </section>
 
                 <section className='row-inputbusca'>
@@ -55,12 +65,8 @@ export default function DashboardCliente() {
 
                     <h3 >Meus Chamados</h3>
                     
-
-
-                    {chamados.map(chamado => {
-                        if (chamado.usuario._id === usuarioId) {
-                            return <CardChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
-                        }
+                    {meusChamados.map(chamado => {
+                        return <CardChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
                     })}
                 </section>
 

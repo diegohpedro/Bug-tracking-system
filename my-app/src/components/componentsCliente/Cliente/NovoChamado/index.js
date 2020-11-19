@@ -38,6 +38,9 @@ export default function NovoChamado(props) {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }});
 
+        alert('Chamado criado');
+        setAssunto('');
+        setDescricao('');
     }
 
 
