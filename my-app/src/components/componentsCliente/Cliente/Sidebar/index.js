@@ -10,7 +10,6 @@ export default function SidebarCliente() {
                 <Link to='/dashboard'>Dashboard</Link>
                 <Link to='/novochamado'>Novo chamado</Link>
                 <Link to='/perfil' >Meu perfil</Link>
-                <Link to='/ajuda' >Ajuda</Link>
                 <Link to='/' onClick={() => localStorage.clear()}>Sair</Link>
             </nav>
         </aside>

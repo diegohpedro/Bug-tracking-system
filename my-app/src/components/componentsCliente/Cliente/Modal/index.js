@@ -1,32 +1,82 @@
 import React, { useEffect, useState } from 'react';
 
+import api from '../../../../services/api';
+
 import './style.css'
 
-const Modal = ({ onClose = () => { } }, props) => {
+function Modal(props) {
 
+  const [assunto, setAssunto] = useState('');
+  const [descricao, setDescricao] = useState('');
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
 
+  useEffect(() => {
+    api.get(`/chamado/${props.id}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    }).then(res => {
+      const chamado = res.data;
+      setAssunto(chamado.assunto);
+      setDescricao(chamado.descricao);
+      setNome(chamado.usuario.nome);
+      setEmail(chamado.usuario.email);
+
+      if(chamado.status === 1) {
+        setStatus('Aberto');
+      } else if (chamado.status === 2) {
+        setStatus('Em progresso');
+      } else if (chamado.status === 3) {
+        setStatus('Finalizado');
+      } else (
+        setStatus('Analisando chamado')
+      )
+    }).catch(err => {
+      alert('Houve algum erro na requisição');
+    });
+
+  }, [])
+
+  function deletarChamado() {
+    if(window.confirm('Deseja deletar o chamado?')){
+      api.delete(`/chamado/${props.id}`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      }).then(res => {
+        alert('Deletado');
+      }).catch(err => {
+        alert('Erro ao deletar');
+      })
+    }
+  }
 
   return (
-    <div className="modal">
+    <div id='modal' className="modal">
       <div className="container" >
-        <button className='close' onClick={onClose}>X</button>
+        <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
           <div className='coluna'>
             <label>Assunto</label>
-            <input className='assuntoModal' />
+            <h1>{assunto}</h1>
             <label>Descrição</label>
-            <input className='descricaoModal' />
+            <h1>{descricao}</h1>
+            
           </div>
           <div className='coluna'>
             <label>Nome</label>
-            <input className='nameModal' />
-            <label>Email</label>
-            <input className='emailModal' />
-            <label>Status</label>
-            <input className='statusModal' />
+            <h1>{nome}</h1>
             
+            <label>Email</label>
+            <h1>{email}</h1>
+            
+            <label>Status</label>
+            <h1>{status}</h1>
           </div>
 
+          <button onClick={deletarChamado}>Deletar chamado</button>
 
 
         </div>

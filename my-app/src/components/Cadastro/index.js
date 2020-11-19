@@ -24,6 +24,7 @@ export default function Cadastro() {
             alert('Usuário cadastrado');
             return history.push('/');
         }).catch(err => {
+            localStorage.clear();
             alert('Email já cadastrado');
         })
 

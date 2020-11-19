@@ -24,6 +24,7 @@ export default function LoginAdmin() {
 
       return history.push('/admin/dashboard');
     }).catch(err => {
+      localStorage.clear();
       alert('Email/senha incorretos.')
     })
 

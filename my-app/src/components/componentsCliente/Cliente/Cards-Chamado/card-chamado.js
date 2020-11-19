@@ -18,7 +18,7 @@ export default function CardChamado(props) {
               {props.assunto}
             </p>
             <button onClick={()=> setIsModalVisible(true)}>Ver</button>
-            {isModalVisible ? <Modal onClose= {()=> setIsModalVisible(false)}/> : null}
+            {isModalVisible ? <Modal id={props.id} onClose={()=> setIsModalVisible(false)}/> : null}
         </div>
       
       </div>

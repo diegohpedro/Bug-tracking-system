@@ -26,7 +26,7 @@ export default function DashboardCliente() {
             
             return history.push('/');
         });
-    }, []);
+    }, [chamados]);
 
     function mostrarChamados() {
         console.log(chamados);

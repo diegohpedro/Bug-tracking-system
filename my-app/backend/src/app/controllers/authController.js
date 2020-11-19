@@ -51,6 +51,9 @@ router.post('/', async (req, res) => {
     if(!await bcrypt.compare(senha, usuario.senha))
         return res.status(400).send({erro: 'Senha inválida'});
 
+    if(usuario.admin)
+        return res.status(401).send({erro: 'Usuário sem permissão'});
+
     usuario.senha = undefined;
 
     res.send({
@@ -70,8 +73,7 @@ router.post('/cadastro', async (req,res) => {
         usuario.senha = undefined; 
 
         return res.send({
-            usuario,
-            token: generateToken({id: usuario._id})
+            usuario
         });
     } catch (err) {
         return res.status(400).send({Erro: 'Falha no registro.'});

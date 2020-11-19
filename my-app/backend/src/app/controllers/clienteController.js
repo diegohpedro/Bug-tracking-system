@@ -37,7 +37,7 @@ router.get('/chamado/:id', async(req, res) => {
     try {
         const chamado = await Chamado.findById(req.params.id).populate('usuario');
         
-        return res.send({chamado});
+        return res.send(chamado);
     } catch (err) {
         res.status(400).send({erro: 'Nenhum chamado encontrado'})
     }

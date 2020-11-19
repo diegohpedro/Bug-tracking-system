@@ -12,7 +12,6 @@ import NovoChamado from './components/componentsCliente/Cliente/NovoChamado';
 import DashboardCliente from './components/componentsCliente/Cliente/DashboardCliente';
 import Perfil from './components/componentsCliente/Cliente/Perfil';
 import TarefaCliente from './components/componentsCliente/Cliente/TarefaCliente';
-import Ajuda from './components/componentsCliente/Cliente/Ajuda';
 
 import DashboardAdmin from './components/componentsAdmin/DashboardAdmin';
 import Tarefas from './components/componentsAdmin/Tarefas';
@@ -55,7 +54,6 @@ export default function Rotas() {
                 <PrivateRoute path='/novochamado' component={NovoChamado}/>
                 <PrivateRoute path='/perfil' component={Perfil}/>
                 <PrivateRoute path='/tarefa/:id' component={TarefaCliente}/>
-                <PrivateRoute path='/ajuda' component={Ajuda}/>
 
                 
                 <PrivateAdminRoute path='/admin/dashboard' component={DashboardAdmin}/>
