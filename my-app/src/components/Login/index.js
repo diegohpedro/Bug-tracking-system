@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import './style.css'
 
 import api from '../../services/api';
@@ -63,11 +63,22 @@ export default function Login() {
             <button type="submit" className="btn-login" onClick={entrar}>Entrar</button>
           </div>
 
+
         </form>
+
+        <div >
+          <div className='footerLogin'>
+            <Link to='/cadastro'>Cadastre-se</Link>
+          </div>
+          <div className='footerLogin'>
+            <Link to='/admin/login'>Login de Administrador</Link>
+          </div>
+        </div>
+
 
       </div>
 
-      
+
     </section >
   )
 }

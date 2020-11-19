@@ -48,7 +48,7 @@
 .descricaoModal{
   width: 100%;
   height: 80%;
-  max-width: 600px;
+  max-width: 400px;
   padding: 150px;
   
 }
@@ -61,14 +61,14 @@
 .content{
   width: 100%;
   height: 500px;
-  
+
 } 
 
 .coluna{
   margin: 2%;
-  float: left;
   width:100%;
   max-width: 400px;
+  display: inline-block;
 }
 
 .nameModal, .emailModal, .statusModal {

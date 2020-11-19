@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory, Link} from 'react-router-dom';
 import './style.css'
 
 import api from '../../../services/api';
@@ -64,6 +64,10 @@ export default function LoginAdmin() {
           </div>
 
         </form>
+
+        <div className='row'>
+                    <Link to='/'>Voltar</Link>
+                </div>
 
       </div>
 

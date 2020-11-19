@@ -82,3 +82,13 @@ label{
   font-size: 1.6rem
   
 }
+
+
+.footerLogin{
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 50px;
+  margin: 2%;
+  margin-right: 50px;
+
+}
