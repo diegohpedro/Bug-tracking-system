@@ -11,6 +11,16 @@ export default function Cadastro() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+          
+          return history.push('/dashboard');
+        } else if (localStorage.getItem('adminToken')) {
+          
+          return history.push('/admin/dashboard');
+        }
+      }, []);
+
     function entrar(event) {
         event.preventDefault();
 

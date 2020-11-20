@@ -53,6 +53,21 @@ router.get('/chamado/:id',authMiddleware, async (req, res) => {
     }
 });
 
+router.get('/usuarios',authMiddleware, async (req, res) => {
+    try {
+        const usuario = await Usuario.findById(req.userId);
+        
+        if(!usuario.admin)
+            return res.status(401).send({erro: 'Usuário sem permissão'});
+
+        const usuarios = await Usuario.find();
+
+        res.send(usuarios);
+    } catch {
+        res.status(400).send({erro: 'Erro ao requisitar usuários'});
+    }
+});
+
 router.get('/projetos',authMiddleware, async(req,res) => {
     try {
         const projetos = await Projeto.find().populate(['usuario', 'tarefas']);
