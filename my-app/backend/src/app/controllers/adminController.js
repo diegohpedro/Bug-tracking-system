@@ -43,6 +43,16 @@ router.get('/perfil',authMiddleware, async (req, res) => {
     }
 });
 
+router.get('/chamado/:id',authMiddleware, async (req, res) => {
+    try {
+        const chamado = await Chamado.findById(req.params.id).populate('usuario');
+
+        res.send(chamado);
+    } catch (err) {
+        res.status(400).send({ erro: 'Nenhum chamado encontrado' })
+    }
+});
+
 router.get('/projetos',authMiddleware, async(req,res) => {
     try {
         const projetos = await Projeto.find().populate(['usuario', 'tarefas']);

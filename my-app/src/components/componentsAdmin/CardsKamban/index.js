@@ -9,7 +9,7 @@ export default function CardKamban(props) {
     <div className="card-kamban" >
       <div className={cor} >
         <div className="card-kamban-body">
-          {props.value}
+          {props.quantidade}
           
         </div>
         <div className="card-kamban-footer">

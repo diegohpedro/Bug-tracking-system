@@ -70,8 +70,8 @@ export default function DashboardCliente() {
                         <div className='statusTicketsCliente'>
                             <h3>Status</h3>
                         </div>
-                        <div className='nomeTicketsCliente'>
-                            <h3>Nome Cliente</h3>
+                        <div className='autorTicketsCliente'>
+                            <h3>Autor</h3>
                         </div>
                         <div className='assuntoTicketsCliente'>
                             <h3>Assunto</h3>
