@@ -1,7 +1,3 @@
-.row-inputbusca{
-    margin-left: 4%;
-}
-
 .inputbusca{
     width: 80%;
     max-width: 1000px;
@@ -22,10 +18,6 @@
 
 }
 
-.row-cardchamado{
-    margin-left: 4%
-}
-
 h3{
     width: 100%;
     max-width: 1000px;
@@ -42,13 +34,37 @@ h4{
 
 }
 
-.headerChamados{
-    height: 10px;
-    max-width: 100px;
-    margin: 10px;
-    text-align: center; 
+.row-ticketsCliente{
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
 }
 
+.headerTicketsCliente{
+    display: flex;
+
+}
+
+.assuntoTicketsCliente{
+    width: 100%;
+    max-width: 300px;
+}
+
+.nomeTicketsCliente{
+    width: 100%;
+    max-width: 250px;
+}
+
+.statusTicketsCliente{
+    width: 100%;
+    max-width: 200px;
+}
+
+h2{
+
+    font-size: 1.6rem;
+    margin-left: 5px;
+}
 
 
 

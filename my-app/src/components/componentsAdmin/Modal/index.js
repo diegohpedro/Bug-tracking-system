@@ -56,9 +56,9 @@ function Modal(props) {
   return (
     <div id='modal' className="modal">
       <div className="container" >
-        {/* <button className='close' onClick={props.onClose}>X</button>
+        <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
-          <div className='coluna'>
+          {/* <div className='coluna'>
             <label>Assunto</label>
             <h1>{assunto}</h1>
             <label>Descrição</label>
@@ -77,9 +77,9 @@ function Modal(props) {
           </div>
 
           <button onClick={deletarChamado}>Deletar chamado</button>
+ */}
 
-
-        </div> */}
+        </div>
       </div>
     </div>
 

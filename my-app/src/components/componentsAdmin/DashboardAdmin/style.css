@@ -62,3 +62,35 @@
     width: 100%;
     height: 100%;
   }
+
+  .row-ticketsAdm{
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+
+  }
+
+  .headerTicketsAdm{
+      display: flex;
+  }
+
+  .assuntoTicketsAdm{
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .nomeTicketsAdm{
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .statusTicketsAdm{
+    width: 100%;
+    max-width: 100px;
+  }
+
+  h2{
+  
+    font-size: 1.6rem;
+    margin-left: 5px;
+  }
