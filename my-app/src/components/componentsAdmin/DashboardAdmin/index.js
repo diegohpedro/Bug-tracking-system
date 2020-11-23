@@ -11,6 +11,7 @@ import './style.css';
 export default function DashboardAdmin() {
     const history = useHistory();
     const [usuarioId, setUsuarioId] = useState('');
+    const [atualizar, setAtualizar] = useState();
     const [chamados, setChamados] = useState([]);
     const [chamadosAbertos, setChamadosAbertos] = useState([]);
     const [chamadosProgresso, setChamadosProgresso] = useState([]);
@@ -24,13 +25,16 @@ export default function DashboardAdmin() {
         }).then(res => {
             setChamados(res.data);
 
-            setChamadosAbertos(chamados.filter(chamado => chamado.status === 1));
-            setChamadosProgresso(chamados.filter(chamado => chamado.status === 2));
-            setChamadosFinalizados(chamados.filter(chamado => chamado.status === 3));
         }).catch(err => {
             localStorage.clear();
-            return history.push('/login');
+            return history.push('/');
         });
+    }, []);
+
+    useEffect(() => {
+        setChamadosAbertos(chamados.filter(chamado => chamado.status === 1));
+        setChamadosProgresso(chamados.filter(chamado => chamado.status === 2));
+        setChamadosFinalizados(chamados.filter(chamado => chamado.status === 3));
     }, [chamados]);
 
     return (
@@ -43,11 +47,28 @@ export default function DashboardAdmin() {
                 <CardsKamban cor='card-ticketandamento' quantidade={chamadosProgresso.length} name='Em progresso' />
                 <CardsKamban cor='card-ticketconcluido' quantidade={chamadosFinalizados.length} name='Finalizados' />
 
+            <section className='row-ticketsAdm'>
+            <h2>Chamados</h2>
+                <div className='headerTicketsAdm'>
+            
+                <div className='assuntoTicketsAdm'>
+                    <h3>Assunto</h3>
+                </div>
+                <div className='autorTicketsAdm'>
+                    <h3>Autor</h3>
+                </div>
+                <div className='statusTicketsAdm'>
+                    <h3>Status</h3>
+                </div>
+                </div>
+                            
                 {chamados.map(chamado => {
                     if (chamado.usuario._id) {
                         return <CardsChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
                     }
                 })}
+                </section>
+                
 
             </main>
         </section>

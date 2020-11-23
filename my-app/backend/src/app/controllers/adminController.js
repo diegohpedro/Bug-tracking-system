@@ -68,21 +68,66 @@ router.get('/usuarios',authMiddleware, async (req, res) => {
     }
 });
 
+router.get('/usuario/:id',authMiddleware, async (req, res) => {
+    try {
+        const admin = await Usuario.findById(req.userId);
+        
+        if(!admin.admin)
+            return res.status(401).send({erro: 'Usuário sem permissão'});
+
+        const usuario = await Usuario.findById(req.params.id);
+
+        res.send(usuario);
+    } catch {
+        res.status(400).send({erro: 'Erro ao requisitar usuários'});
+    }
+});
+
+router.patch('/usuario/:id', authMiddleware, async (req, res) => {
+    try {
+        const admin = await Usuario.findById(req.userId);
+        
+        if(!admin.admin)
+            return res.status(401).send({erro: 'Usuário sem permissão'});
+
+        const usuario = await Usuario.findByIdAndUpdate(req.params.id, {dev: true});
+
+        res.send(usuario);
+    } catch {
+        res.status(400).send({erro: 'Erro ao tentar promover usuário'});
+    }
+});
+
+router.patch('/usuario/remove/:id', authMiddleware, async (req, res) => {
+    try {
+        const admin = await Usuario.findById(req.userId);
+        
+        if(!admin.admin)
+            return res.status(401).send({erro: 'Usuário sem permissão'});
+
+        const usuario = await Usuario.findByIdAndUpdate(req.params.id, {dev: false});
+
+        res.send(usuario);
+    } catch {
+        res.status(400).send({erro: 'Erro ao tentar promover usuário'});
+    }
+});
+
 router.get('/projetos',authMiddleware, async(req,res) => {
     try {
         const projetos = await Projeto.find().populate(['usuario', 'tarefas']);
 
-        return res.send({projetos});
+        return res.send(projetos);
     } catch {
         return res.status(400).send({erro: 'Erro na requisição'});
     }
-})
+});
 
 router.post('/novoprojeto',authMiddleware, async (req,res) => {
     try {
-        const {assunto, descricao, tarefas } = req.body;
+        const {assunto, descricao, orientacoes, tarefas, chamado } = req.body;
 
-        const projeto = await Projeto.create({assunto, descricao, usuario: req.userId});
+        const projeto = await Projeto.create({assunto, descricao, orientacoes, chamado, usuario: req.userId});
 
         await Promise.all(tarefas.map(async tarefa => {
             const projetoTarefa = new Tarefa({...tarefa, projeto: projeto._id});
@@ -94,7 +139,9 @@ router.post('/novoprojeto',authMiddleware, async (req,res) => {
 
         await projeto.save();
 
-        return res.send({projeto});
+        await Chamado.findByIdAndUpdate(chamado, {status: 2});
+
+        return res.send(projeto);
 
     } catch {
         return res.status(400).send({erro: 'Erro ao criar.'})
@@ -146,6 +193,16 @@ router.delete('/projeto/:id',authMiddleware, async(req, res) => {
         return res.send({sucess: "Deletado"});
     } catch {
         res.status(400).send({erro: 'Erro ao tentar'});
+    }
+});
+
+router.get('/tarefas',authMiddleware, async(req,res) => {
+    try {
+        const tarefas = await Tarefa.find().populate(['projeto', 'responsavel']);
+
+        return res.send(tarefas);
+    } catch {
+        return res.status(400).send({erro: 'Erro na requisição'});
     }
 });
 

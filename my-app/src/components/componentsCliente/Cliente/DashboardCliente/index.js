@@ -33,7 +33,7 @@ export default function DashboardCliente() {
             setChamadosProgresso(meusChamados.filter(chamado => chamado.status === 2));
             setChamadosFinalizados(meusChamados.filter(chamado => chamado.status === 3));
         }).catch(err => {
-            
+
             return history.push('/');
         });
     }, [chamados]);
@@ -61,10 +61,23 @@ export default function DashboardCliente() {
                 </section>
 
 
-                <section className='row-cardchamado'>
+                <section className='row-ticketsCliente'>
 
                     <h3 >Meus Chamados</h3>
-                    
+
+                    <div className='headerTicketsCliente'>
+
+                        <div className='statusTicketsCliente'>
+                            <h3>Status</h3>
+                        </div>
+                        <div className='autorTicketsCliente'>
+                            <h3>Autor</h3>
+                        </div>
+                        <div className='assuntoTicketsCliente'>
+                            <h3>Assunto</h3>
+                        </div>
+                    </div>
+
                     {meusChamados.map(chamado => {
                         return <CardChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
                     })}

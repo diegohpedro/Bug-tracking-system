@@ -9,10 +9,8 @@ export default function Sidebar() {
             <nav>
                 <Link to='/admin/dashboard' >Dashboard</Link>
                 <Link to='/admin/perfil' >Perfil</Link>
-                {/* <Link to='/admin/tarefas' >Tarefas</Link>   */}
                 <Link to='/admin/usuarios' >Usuarios</Link>
                 <Link to='/admin/login' onClick={() => localStorage.clear()}>Sair</Link>
-
             </nav>
         </aside>
     )

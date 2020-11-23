@@ -19,9 +19,9 @@ export default function Usuarios() {
             setUsuarios(res.data);
         }).catch(err => {
             localStorage.clear();
-            return history.push('/login');
+            return history.push('/');
         });
-    }, [usuarios]);
+    }, []);
 
     return (
         <section id='conteudo'>
@@ -32,7 +32,7 @@ export default function Usuarios() {
                     descricao='Lista de usuarios.'
                 />
                 {usuarios.map(usuario => {
-                        return <CardUsuario key={usuario._id} id={usuario._id} nome={usuario.nome} admin={usuario.admin}/>
+                        return <CardUsuario key={usuario._id} email={usuario.email} id={usuario._id} nome={usuario.nome} dev={usuario.dev} admin={usuario.admin}/>
                     })}
             </main>
 
