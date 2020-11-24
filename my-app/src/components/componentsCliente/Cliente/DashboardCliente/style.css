@@ -6,20 +6,22 @@
     width: 80%;
     max-width: 1000px;
     padding:10px;
-    border: 1px solid  rgb(12, 0, 0);
+    border: none;
+    border-bottom: 2px solid rgb(101, 213, 252);
     font-size: 1rem;
-    border-radius:5px;
-
-    
 }
 
 .btn-buscar{
-    padding: 10px;
-    border-radius:5px;
+    padding: 13px;
+    border-radius: 5px;
     margin: 5px;
-    background-color: rgb(158, 154, 154);
-    /* transition:all 0.3s ease; */
-
+    /* background-color: rgb(158, 154, 154); */
+    background-color: rgb(101, 213, 252);
+    box-shadow:  2px 2px 10px #56b5d6,
+                 2px 2px 10px #74f5ff;
+    border: none;
+    box-shadow: black;
+    cursor: pointer;
 }
 
 .row-cardchamado{

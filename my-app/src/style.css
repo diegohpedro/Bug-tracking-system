@@ -3,6 +3,18 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: black;
+}
+
+body {
+    background-color: rgb(228, 237, 238);
+}
+
+img {
+    position: relative;
+    top: -5px;
+    left: 120px;
+    width: 300px;
 }
 
 #conteudo {

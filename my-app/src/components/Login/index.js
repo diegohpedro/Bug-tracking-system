@@ -4,6 +4,8 @@ import './style.css'
 
 import api from '../../services/api';
 
+import IMG from '../Img/team_meeting_monochromatic.svg'
+
 export default function Login() {
   const history = useHistory();
 
@@ -65,8 +67,9 @@ export default function Login() {
 
         </form>
 
-      </div>
+        <img src={IMG} width="900" alt="Imagem de uma equipe discutindo uma ideia" />
 
+      </div>
       
     </section >
   )

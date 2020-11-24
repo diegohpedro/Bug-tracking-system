@@ -20,7 +20,7 @@ export default function Usuarios() {
             <main>
                 <ConteudoHeader
                     titulo='Usuarios'
-                    descricao='Lista de usuarios.'
+                    descricao='Lista de usuários.'
                 />
                 {usuarios.map(usuario => {
                         return <CardUsuario key={usuario._id} id={usuario._id} nome={usuario.nome} />

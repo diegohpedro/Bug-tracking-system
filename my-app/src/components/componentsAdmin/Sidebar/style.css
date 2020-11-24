@@ -1,5 +1,5 @@
 #sidebar {
-    background-color: #b7b7a4;
+    background-color: rgb(101, 213, 252);
     width: 350px;
     height: 130vh;
     display: flex;
@@ -22,11 +22,12 @@
     text-align: center;
     justify-content: center;
     width: 100%;
-    color: #212529;
+    color: black;
     height: 100px;
     transition: 0.25s ease-in;
 }
 
 #sidebar nav a:hover {
-    background-color: #a5a58d;
-} 
+    background-color: rgb(5, 50, 65);
+    color: #fff;
+}
