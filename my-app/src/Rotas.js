@@ -15,7 +15,8 @@ import Perfil from './components/componentsCliente/Cliente/Perfil';
 import DashboardAdmin from './components/componentsAdmin/DashboardAdmin';
 import PerfilAdmin from './components/componentsAdmin/PerfilAdmin';
 import Usuarios from './components/componentsAdmin/Usuarios';
-import Usuario from './components/componentsAdmin/Usuario';
+
+import DashboardDev from './components/componentsDev/DashboardDev';
 
 const PrivateRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={props => (
@@ -56,7 +57,8 @@ export default function Rotas() {
                 <PrivateAdminRoute path='/admin/dashboard' component={DashboardAdmin}/>
                 <PrivateAdminRoute path='/admin/perfil' component={PerfilAdmin}/>
                 <PrivateAdminRoute path='/admin/usuarios' component={Usuarios}/>
-                <PrivateAdminRoute path='/admin/usuario/:id' component={Usuario}/>
+
+                <Route path='/dev/dashboard' component={DashboardDev} />
 
             </Switch>
         </BrowserRouter> 

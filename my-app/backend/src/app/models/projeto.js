@@ -4,6 +4,8 @@ const Schema= mongoose.Schema
 const ProjetoSchema = new Schema ({
     assunto: {type: String, required: true},
     descricao: {type: String, required: true},
+    orientacoes: {type: String, required: true},
+    status: {type: Number, required: true, default: 1},
     chamado: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Chamado'

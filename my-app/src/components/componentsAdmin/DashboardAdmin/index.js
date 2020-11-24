@@ -11,6 +11,7 @@ import './style.css';
 export default function DashboardAdmin() {
     const history = useHistory();
     const [usuarioId, setUsuarioId] = useState('');
+    const [atualizar, setAtualizar] = useState();
     const [chamados, setChamados] = useState([]);
     const [chamadosAbertos, setChamadosAbertos] = useState([]);
     const [chamadosProgresso, setChamadosProgresso] = useState([]);
@@ -24,13 +25,16 @@ export default function DashboardAdmin() {
         }).then(res => {
             setChamados(res.data);
 
-            setChamadosAbertos(chamados.filter(chamado => chamado.status === 1));
-            setChamadosProgresso(chamados.filter(chamado => chamado.status === 2));
-            setChamadosFinalizados(chamados.filter(chamado => chamado.status === 3));
         }).catch(err => {
             localStorage.clear();
-            return history.push('/login');
+            return history.push('/');
         });
+    }, []);
+
+    useEffect(() => {
+        setChamadosAbertos(chamados.filter(chamado => chamado.status === 1));
+        setChamadosProgresso(chamados.filter(chamado => chamado.status === 2));
+        setChamadosFinalizados(chamados.filter(chamado => chamado.status === 3));
     }, [chamados]);
 
     return (

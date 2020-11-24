@@ -2,19 +2,17 @@ const mongoose = require ('mongoose');
 const Schema= mongoose.Schema
 
 const TarefaSchema = new Schema ({
-    assunto: {type: String, required: true},
     descricao: {type: String, required: true},
-    chamado: {
+    projeto: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Chamado',
+        ref: 'Projeto',
         require: true,
     },
 
-    atribuido: {
+    responsavel: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Usuario',
-        require: true,
-        default: 'Ninguém'
+        require: true
     },
 
     completo: {

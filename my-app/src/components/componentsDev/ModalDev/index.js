@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import ModalProjeto from '../ModalProjeto';
-
+// ../../../services/api
 import api from '../../../services/api';
 
-import './style.css'
+// import './style.css'
 
-function Modal(props) {
+function ModalDev(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const [assunto, setAssunto] = useState('');
@@ -27,6 +26,7 @@ function Modal(props) {
       setEmail(chamado.usuario.email);
       setStatus(chamado.status);
     }).catch(err => {
+      console.log(err)
       alert('Houve algum erro na requisição');
     });
 
@@ -63,29 +63,21 @@ function Modal(props) {
         <div className='content'>
           <div className='coluna'>
             <label>Assunto</label>
-            <h1>{assunto}</h1>
+            <h1>aqui fica o assunto</h1>
+            
             <label>Descrição</label>
-            <h1>{descricao}</h1>
+            <h1>Aqui fica a descrição</h1>
             
           </div>
           <div className='coluna'>
-            <label>Nome</label>
-            <h1>{nome}</h1>
-            
-            <label>Email</label>
-            <h1>{email}</h1>
-            
+            <label>Autor</label>
+            <h1>Nome do Autor</h1>
+            <label>Responsavel</label>
+            <h1>Nome Responsavel</h1>
             <label>Status</label>
             <h1>{verificarStatus()}</h1>
           </div>
-
-          {status === 1 ? <button onClick={deletarChamado}>Deletar chamado</button> : null}
-          
-          {status === 1
-            ? <button onClick={()=> setIsModalVisible(true)}>Montar projeto</button>
-            : <button >Ver projeto</button>}
-
-            {isModalVisible ? <ModalProjeto id={props.id} nome={nome} assunto={assunto} descricao={descricao} onClose={()=> setIsModalVisible(false)}/> : null}
+  
 
         </div>
       </div>
@@ -94,4 +86,4 @@ function Modal(props) {
   )
 }
 
-export default Modal;
+export default ModalDev;

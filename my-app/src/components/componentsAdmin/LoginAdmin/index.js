@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useHistory, Link} from 'react-router-dom';
 import './style.css'
 
@@ -9,6 +9,16 @@ export default function LoginAdmin() {
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      
+      return history.push('/dashboard');
+    } else if (localStorage.getItem('adminToken')) {
+      
+      return history.push('/admin/dashboard');
+    }
+  }, []);
 
   function entrar(event) {
     event.preventDefault();
