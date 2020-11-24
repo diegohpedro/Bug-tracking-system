@@ -26,7 +26,3 @@
     height: 100px;
     transition: 0.25s ease-in;
 }
-
-#sidebar nav a:hover {
-    background-color: #a5a58d;
-} 

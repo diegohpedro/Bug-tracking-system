@@ -1,0 +1,33 @@
+.card-dev{
+  border: 1px solid rgb(10, 0, 0);
+  width: 100%;
+  height: 180px;
+  max-width: 300px;
+  margin: 3px;
+  
+}
+
+.card-dev-assunto{
+  border: 1px solid rgb(10, 0, 0);
+  width: 100%;
+  height: 35px;
+}
+
+.card-dev-descricao{
+  border: 1px solid rgb(10, 0, 0);
+  width: 100%;
+  height: 90px;
+  margin-top:1px
+}
+
+.card-dev-tarefa{
+  width:100%;
+  height: 20px;
+  text-align: center;
+  border: 1px solid rgb(10, 0, 0);
+}
+
+.btn-ver{
+  width: 100%;
+  background-color: rgb(20, 187, 238);
+}

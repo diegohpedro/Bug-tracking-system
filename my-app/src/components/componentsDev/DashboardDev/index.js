@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import SidebarDev from '../SidebarDev';
-
+import CardDev from '../CardDev';
 
 import api from '../../../services/api';
 
@@ -9,47 +9,62 @@ import './style.css';
 
 export default function DashboardDev() {
     const history = useHistory();
-    const [projetos, setProjetos] = useState([]);
-    const [projetosAndamento, setProjetosAndamento] = useState();
 
-    async function atualizarProjetos() {
-        let {data} = await api.get('/dev/dashboard', {
+    const [projetos, setProjetos] = useState([]);
+    const [atualizar, setAtualizar] = useState(0);
+
+    useEffect(() => {
+        requisitarProjetos();
+    }, [atualizar]);
+
+    function requisitarProjetos() {
+        api.get('/dev/dashboard', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
+        }).then(res => {
+            setProjetos(res.data);
+        }).catch(err => {
+            console.log(err);
         });
-        setProjetos(data);
     }
-    
-    useEffect(() => {
-        atualizarProjetos();
-    }, []);
 
     return (
-        <section id='conteudo'>
-            <SidebarDev />
-            <main className='container-main'>
-                <h1>Projetos</h1>
-                <div className='container-projetos'>
-                    <section>
-                        <h1>Em andamento</h1>
-                        {projetos.map( (projeto, index) => (<div key={index}>
-                                <label>Assunto: {projeto.assunto}</label>
-                                <label>Tarefas: {projeto.tarefas.length}</label>
-                                <label>Desenvolvedores</label>
-                            </div>))}
-                    </section>
 
-                    <section>
-                        <h1>Em análise</h1>
-                    </section>
+            <section id='conteudo'>
+                <SidebarDev />
+                <main className='container-main'>
+                    <h1>Projetos</h1>
+                    <div className='container-projetos'>
+                        <section className='row-card'>
+                            <h1>Em andamento</h1>
+                            {projetos.map((projeto, index) => {
+                                if (projeto.status === 1) {
+                                    return <CardDev key={index} assunto={projeto.assunto} id={projeto._id} descricao={projeto.descricao} tarefas={projeto.tarefas} desenvolvedores='João, Fábio' />
 
-                    <section>
-                        <h1>Finalizados</h1>
-                    </section>
-                </div>
-            </main>
+                                }
+                            })}
 
-        </section>
+                        </section>
+
+                        <section className='row-card'>
+                            <h1>Em análise</h1>
+                            {projetos.map((projeto, index) => {
+                                if (projeto.status === 2) {
+                                    return <CardDev key={index} assunto={projeto.assunto} id={projeto._id} descricao={projeto.descricao} tarefas={projeto.tarefas} desenvolvedores='João, Fábio' />
+
+                                }
+                            })}
+                        </section>
+
+                        <section className='row-card'>
+                            <h1>Finalizados</h1>
+
+                        </section>
+                    </div>
+                </main>
+
+            </section>
+
     )
 }
