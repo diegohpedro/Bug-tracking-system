@@ -17,6 +17,7 @@ import PerfilAdmin from './components/componentsAdmin/PerfilAdmin';
 import Usuarios from './components/componentsAdmin/Usuarios';
 
 import DashboardDev from './components/componentsDev/DashboardDev';
+import PerfilDev from './components/componentsDev/PerfilDev';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
@@ -39,6 +40,7 @@ const PrivateAdminRoute = ({ component: Component, ...rest }) => (
 )
 
 export default function Rotas() {
+<<<<<<< HEAD
     return (
             <BrowserRouter>
                 <Switch>
@@ -62,5 +64,31 @@ export default function Rotas() {
 
                 </Switch>
             </BrowserRouter>
+=======
+    return(
+        <BrowserRouter>
+            <Switch>
+                
+                <Route exact path='/' component={Login}/>
+                <Route path='/cadastro' component={Cadastro}/>
+                <Route path='/admin/login' component={LoginAdmin}/>
+
+                
+                <PrivateRoute path='/dashboard' component={DashboardCliente}/>
+                <PrivateRoute path='/novochamado' component={NovoChamado}/>
+                <PrivateRoute path='/perfil' component={Perfil}/>
+                
+
+                
+                <PrivateAdminRoute path='/admin/dashboard' component={DashboardAdmin}/>
+                <PrivateAdminRoute path='/admin/perfil' component={PerfilAdmin}/>
+                <PrivateAdminRoute path='/admin/usuarios' component={Usuarios}/>
+
+                <Route path='/dev/dashboard' component={DashboardDev} />
+                <Route path='/dev/perfil' component={PerfilDev} />
+
+            </Switch>
+        </BrowserRouter> 
+>>>>>>> c14764f1ff201b50893199355a57983933a286d2
     )
 }

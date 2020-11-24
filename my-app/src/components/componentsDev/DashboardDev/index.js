@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import SidebarDev from '../SidebarDev';
+import Sidebar from '../Sidebar';
 import CardDev from '../CardDev';
 
 import api from '../../../services/api';
