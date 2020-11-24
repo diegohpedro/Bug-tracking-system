@@ -7,22 +7,22 @@ import api from '../../../services/api';
 
 import './style.css';
 
-export default function DashboardCliente() {
+export default function DashboardDev() {
     const history = useHistory();
-    const [projetos, setProjetos] = useState();
+    const [projetos, setProjetos] = useState([]);
     const [projetosAndamento, setProjetosAndamento] = useState();
 
-    
-
-    useEffect(async () => {
-        const {data} = await api.get('/dev/dashboard', {
+    async function atualizarProjetos() {
+        let {data} = await api.get('/dev/dashboard', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         });
-
         setProjetos(data);
-        
+    }
+    
+    useEffect(() => {
+        atualizarProjetos();
     }, []);
 
     return (
@@ -33,7 +33,11 @@ export default function DashboardCliente() {
                 <div className='container-projetos'>
                     <section>
                         <h1>Em andamento</h1>
-                        
+                        {projetos.map( (projeto, index) => (<div key={index}>
+                                <label>Assunto: {projeto.assunto}</label>
+                                <label>Tarefas: {projeto.tarefas.length}</label>
+                                <label>Desenvolvedores</label>
+                            </div>))}
                     </section>
 
                     <section>

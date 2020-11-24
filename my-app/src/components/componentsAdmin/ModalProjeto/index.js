@@ -40,6 +40,8 @@ function ModalProjeto(props) {
 
     tarefas.push(tarefa);
 
+    setDescricaoTarefa('');
+
     setAtualizar(prev => prev + 1);
   }
 
@@ -56,7 +58,19 @@ function ModalProjeto(props) {
       chamado: props.id,
       tarefas: tarefasFormatadas
     }
-    
+
+    console.log(body);
+
+    api.post('/admin/novoprojeto', body, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+      }
+    }).then(res => {
+      alert('Projeto criado');
+      setAtualizar(prev => prev + 1);
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
   return (
@@ -65,8 +79,7 @@ function ModalProjeto(props) {
         <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
           <div className='coluna'>
-            <h1>Administrador responsável: {props.nome}</h1>
-
+  
             <label>Assunto</label>
             <h1>{props.assunto}</h1>
 
@@ -107,10 +120,7 @@ function ModalProjeto(props) {
 
           </div>
 
-          <button >Cancelar</button>
-
           <button onClick={montarProjeto}>Montar</button>
-
 
         </div>
       </div>
