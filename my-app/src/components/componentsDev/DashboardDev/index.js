@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import SidebarDev from '../SidebarDev';
+import Sidebar from '../Sidebar';
 import CardDev from '../CardDev';
 
 
@@ -28,7 +28,7 @@ export default function DashboardCliente() {
 
     return (
         <section id='conteudo'>
-            <SidebarDev />
+            <Sidebar />
             <main className='container-main'>
                 <h1>Projetos</h1>
                 <div className='container-projetos'>
