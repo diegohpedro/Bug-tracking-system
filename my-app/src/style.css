@@ -7,14 +7,13 @@
 }
 
 body {
-    background-color: rgb(228, 237, 238);
+    background-color: #d2f2fc;
 }
 
 img {
     position: relative;
     top: -5px;
     left: 120px;
-    width: 300px;
 }
 
 #conteudo {

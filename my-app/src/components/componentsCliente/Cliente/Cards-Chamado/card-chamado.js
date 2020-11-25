@@ -1,5 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
 import './style.css'
 import Modal from '../Modal'
 
@@ -17,8 +16,8 @@ export default function CardChamado(props) {
             <p>
               {props.assunto}
             </p>
-            <button onClick={()=> setIsModalVisible(true)}>Ver</button>
-            {isModalVisible ? <Modal onClose= {()=> setIsModalVisible(false)}/> : null}
+            <button className='btn-ver' onClick={()=> setIsModalVisible(true)}>Ver</button>
+            {isModalVisible ? <Modal id={props.id} onClose={()=> setIsModalVisible(false)}/> : null}
         </div>
       
       </div>

@@ -4,6 +4,7 @@
     height: 130vh;
     display: flex;
     align-items: center;
+    color: white;
 }
 
 #sidebar nav {
@@ -22,12 +23,6 @@
     text-align: center;
     justify-content: center;
     width: 100%;
-    color: black;
     height: 100px;
     transition: 0.25s ease-in;
-}
-
-#sidebar nav a:hover {
-    background-color: rgb(5, 50, 65);
-    color: #fff;
 }

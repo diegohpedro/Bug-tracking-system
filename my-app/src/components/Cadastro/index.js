@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import './style.css'
 
 import api from '../../services/api';
@@ -10,6 +10,16 @@ export default function Cadastro() {
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+
+    useEffect(() => {
+        if(localStorage.getItem('token')){
+          
+          return history.push('/dashboard');
+        } else if (localStorage.getItem('adminToken')) {
+          
+          return history.push('/admin/dashboard');
+        }
+      }, []);
 
     function entrar(event) {
         event.preventDefault();
@@ -24,6 +34,7 @@ export default function Cadastro() {
             alert('Usuário cadastrado');
             return history.push('/');
         }).catch(err => {
+            localStorage.clear();
             alert('Email já cadastrado');
         })
 
@@ -76,9 +87,11 @@ export default function Cadastro() {
 
                 </form>
 
+                <div className='row' className='btn-voltar'>
+                    <Link to='/'>Voltar</Link>
+                </div>
+
             </div>
-
-
         </section >
     )
 }

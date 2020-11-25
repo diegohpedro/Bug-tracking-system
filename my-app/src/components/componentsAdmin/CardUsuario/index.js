@@ -1,11 +1,20 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import ModalUsuario from '../ModalUsuario';
 
 export default function CardUsuario({nome, id}) {
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
     return(
         <div>
             <h1>{nome}</h1>
-            <Link to={`/admin/usuario/${id}`}>Ver</Link>
+            <button onClick={()=> setIsModalVisible(true)}>Mais informações</button>
+            {isModalVisible 
+            ? 
+                <ModalUsuario 
+                    id={id} 
+                    onClose={()=> setIsModalVisible(false)}
+                /> 
+            : null}
         </div>
     )
 }

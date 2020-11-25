@@ -19,6 +19,11 @@ const UsuarioSchema = new Schema ({
         required: true,
         default: false
     },
+    dev: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
     senha: {type:String,required:true, select: false},
     tipo: {type: Number, required:true, default: 1},
     createdAt: {type: Date, default: Date.now}

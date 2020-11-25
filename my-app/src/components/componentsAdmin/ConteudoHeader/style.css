@@ -1,8 +1,9 @@
 #conteudo-header {
     padding-left: 20px;
     /* background-color: #d8d8d8; */
-    /* background-color: rgb(210, 236, 245); */
-    background-color: #fff;
+    background-color: rgb(210, 236, 245);
+    /* background-color: #fff; */
+    /* background-color: rgb(206, 32, 32); */
     height: 150px;
     display: flex;
     flex-direction: column;

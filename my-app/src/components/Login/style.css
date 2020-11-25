@@ -20,7 +20,6 @@
   max-width:400px;
   display: block;
   margin: 1.5rem 0;
-  /* border: 1px solid rgb(0, 0, 0); */
   border: none;
   border-radius: 10px;
 }
@@ -30,8 +29,7 @@
   max-width: 400px;
   display: block;
   margin: 1.5rem 0;
-  align-items: center;
-  
+  align-items: center; 
 }
 
 .row{
@@ -42,7 +40,6 @@
 
 label{
   display: block;
-
 }
 
 .input-login{
@@ -50,35 +47,53 @@ label{
   width: 100%;
   padding: 10px;
   font-size: 1rem;
-  border-radius:5px;
-  /* border: 1px solid rgb(0, 0, 0); */
+  border-radius: 5px;
 }
 
 .btn-login{
   padding:10px;
   cursor: pointer;
   border-radius:5px;
-  /* background-color:rgb(32, 105, 134); */
-  /* border: 1px solid rgb(125, 212, 247); */
-  /* background-color: black; */
   width: 100%;
   max-width: 400px;
   font-size: 1.4rem;
-  /* color: #000; */
-  transition:all 0.3s ease;
-  opacity:1;
+  transition: all 0.3s ease;
+  opacity: 1;
+  background-color: indigo;
 }
 
 .btn-login:hover
 {
   background-color:rgb(16, 243, 69);
-  opacity:1;     
-  color: black; 
+  color: black;
 }
 
 .content-header{
   text-align: center;
   margin-top: 30px;
   box-sizing: border-box;
-  font-size: 1.6rem;
+}
+
+/* .footerLogin{
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  left: 35px;
+  top: -10px;
+  font-size: 17px;
+  margin: 2%;
+  margin-right: 50px;
+} */
+
+.footerLogin-1 {
+  width: 89px;
+  position: relative;
+  left: 15px;
+}
+
+.footerLogin-2 {
+  width: 170px;
+  position: relative;
+  left: 218px;
+  top: -17px;
 }

@@ -7,3 +7,14 @@
   border-radius: 10px;
   margin-left: 0.5%;
 }
+
+button.btn-ver {
+  background: linear-gradient(145deg, #a5e0f0, #54daff);
+  box-shadow:  1px 1px 5px #52abc4,
+                0px 0px 5px #6ee7ff;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  border-radius: 3px;
+}

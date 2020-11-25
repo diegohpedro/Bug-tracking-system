@@ -1,12 +1,9 @@
 #novo-chamado{
     display: flex;
-    
-    /* background-color: rgb(245, 241, 7); */
 }
 
 #novo-chamado main {
     width: 100%;
-    
 }
 
 .formulario{
@@ -20,15 +17,16 @@
 .form-principal{
     /* background-color: #fa0b0b; */
     display: inline-block;
-    width: 55%;  
+    width: 55%;
     height: 100%;
     padding: 10px;
+    position: relative;
+    left: 200px;
 }
 
 .form-principal input {
     padding: 5px;
     width: 100%;
-    
 }
 
 label{
@@ -39,22 +37,18 @@ label{
     padding: 10px;
     resize: none;
     width: 100%;
-    height: 100%;
+    height: 150px;
     max-height:300px;
-    border: 2px solid rgb(0, 0, 0);
+    border-radius: 5px;
     box-sizing: border-box;
-
 }
 
 .form-secundario{
-    height: 100%;
+    height: 14%;
     width: 40%;
     box-sizing: border-box;
-    float: right;
-    /* background-color: #20f5ea; */
-    display: inline-block;
-    margin-left: 5%;
-    margin-top: 5px;
+    margin-left: 25%;
+    margin-top: -100px;
 }
 
 .form-secundario input{
@@ -77,25 +71,24 @@ label{
     width: 100%;
     text-align: center;
     margin-top: 10px;
-    
 }
 
 #btn-cancelar{
-    background-color: red;
+    background-color: none;
+    border: none;
     padding: 10px;
     margin: 5px;
     font-size: 1rem;
+    cursor: pointer;
 }
 
 #btn-criarchamado{
-    background-color: rgb(26, 250, 26);
+    background: linear-gradient(145deg, #2fc8f2, #28a8cb);
+    border-radius: 5px;
+    border: none;
     padding: 10px;
     margin: 5px;
     font-size: 1rem;
+    cursor: pointer;
 }
-
-
-
-
-
 

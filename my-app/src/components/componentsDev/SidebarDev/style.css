@@ -1,6 +1,4 @@
-aside {
-    background: linear-gradient(145deg, #a1e0f1, #054152);
-    box-shadow:  0px 5px 20px #5fcfee;
+#sidebar {
     width: 350px;
     height: 100vh;
     display: flex;
@@ -22,19 +20,12 @@ aside {
     text-align: center;
     justify-content: center;
     width: 100%;
+    color: white;
     height: 100px;
     transition: 0.25s ease-in;
 }
 
-.selected {
+#sidebar nav a:hover {
     background-color: #5fcfee;
     color: black;
 }
-
-/* nav {
-    color: white;
-} */
-
-/* #sidebar nav a:hover {
-    background-color: rgb(179, 70, 70);
-} */
