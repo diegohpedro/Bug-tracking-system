@@ -40,6 +40,28 @@ router.post('/admin/login', async (req, res) => {
     });
 });
 
+router.post('/dev/login', async (req, res) => {
+    const {email, senha} = req.body;
+ 
+    const usuario = await Usuario.findOne({email}).select('+senha');
+
+    if(!usuario)
+        return res.status(400).send({erro: 'Usuário não encontrado'});
+
+    if(!usuario.dev)
+        return res.status(401).send({erro: 'Usuário sem permissão'});
+
+    if(!await bcrypt.compare(senha, usuario.senha))
+        return res.status(400).send({erro: 'Senha inválida'});
+
+    usuario.senha = undefined;
+
+    res.send({
+        usuario, 
+        token: generateToken({id: usuario._id})
+    });
+});
+
 router.post('/', async (req, res) => {
     const {email, senha} = req.body;
  
@@ -73,7 +95,8 @@ router.post('/cadastro', async (req,res) => {
         usuario.senha = undefined; 
 
         return res.send({
-            usuario
+            usuario,
+            token: generateToken({id: usuario._id})
         });
     } catch (err) {
         return res.status(400).send({Erro: 'Falha no registro.'});

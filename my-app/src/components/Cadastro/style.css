@@ -13,3 +13,12 @@
   font-size: 20px;
   text-align: center;
 }
+
+.input-login{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius:5px;
+  border: 1px solid rgb(125, 212, 247);
+}

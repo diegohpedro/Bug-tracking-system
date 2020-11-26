@@ -20,9 +20,17 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
 
 router.get('/projeto/:id', authMiddleware, async (req, res) => {
     try {
-        const projeto = await Projeto.findById(req.params.id).populate(['usuario', 'tarefas']);
+        const projeto = await Projeto.findById(req.params.id).populate('usuario');
 
-        return res.send(projeto);
+        const tarefas = [];
+
+        await Promise.all(projeto.tarefas.map(async tarefa => {
+            const tarefaReq = await Tarefa.findById(tarefa._id).populate('responsavel');
+            
+            tarefas.push(tarefaReq);
+        }));
+
+        return res.send({projeto, tarefas});
     } catch {
         return res.status(400).send({ erro: 'Erro na requisição' });
     }

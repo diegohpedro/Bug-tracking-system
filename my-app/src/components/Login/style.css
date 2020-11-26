@@ -6,7 +6,7 @@
   outline: none;
 }
 
-.email, .senha {
+.campo {
   text-align: center;
 }
 
@@ -36,11 +36,11 @@
   align-items: center; 
 }
 
-.row{
+/* .row{
   width: 100%;
   max-width: 500px;
   padding: 10px;
-}
+} */
 
 label{
   display: block;
@@ -67,9 +67,6 @@ button.btn-login{
   background: linear-gradient(145deg, #066b7c, #055a68);
   box-shadow:  0px 0px 3px #055563, 
                0px 0px 3px #077385;
-  /* background: linear-gradient(145deg, #6ac8ff, #59a8d6);
-  box-shadow:  0px 0px 2px #549fca,
-                0px  0px 2px #72d7ff; */
 }
 
 button.btn-login:hover{
@@ -82,26 +79,8 @@ button.btn-login:hover{
   box-sizing: border-box;
 }
 
-/* .footerLogin{
-  box-sizing: border-box;
-  display: inline-block;
-  position: relative;
-  left: 35px;
-  top: -10px;
-  font-size: 17px;
-  margin: 2%;
-  margin-right: 50px;
-} */
-
-.footerLogin-1 {
-  width: 89px;
-  position: relative;
-  left: 15px;
-}
-
-.footerLogin-2 {
-  width: 170px;
-  position: relative;
-  left: 218px;
-  top: -17px;
+.footerLogin-1{
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
 }
