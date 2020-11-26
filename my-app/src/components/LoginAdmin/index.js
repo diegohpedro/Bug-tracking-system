@@ -1,10 +1,10 @@
-import React, { useState, useEffect} from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import React, {useState, useEffect} from 'react';
+import { useHistory, Link} from 'react-router-dom';
 import './style.css'
 
 import api from '../../services/api';
 
-export default function Login() {
+export default function LoginAdmin() {
   const history = useHistory();
 
   const [email, setEmail] = useState('');
@@ -17,6 +17,9 @@ export default function Login() {
     } else if (localStorage.getItem('adminToken')) {
       
       return history.push('/admin/dashboard');
+    } else if (localStorage.getItem('devToken')) {
+
+      return history.push('/dev/dashboard');
     }
   }, []);
 
@@ -28,12 +31,13 @@ export default function Login() {
       senha
     }
 
-    api.post('/', body).then(res => {
+    api.post('/admin/login', body).then(res => {
 
-      localStorage.setItem('token', res.data.token);
+      localStorage.setItem('adminToken', res.data.token);
 
-      return history.push('/dashboard');
+      return history.push('/admin/dashboard');
     }).catch(err => {
+      localStorage.clear();
       alert('Email/senha incorretos.')
     })
 
@@ -45,7 +49,7 @@ export default function Login() {
       <div className='login-content'>
 
         <header className="content-header">
-          <h2>Login</h2>
+          <h2>Login(Admin)</h2>
         </header>
 
         <form className="login-form">
@@ -73,25 +77,15 @@ export default function Login() {
             <button type="submit" className="btn-login" onClick={entrar}>Entrar</button>
           </div>
 
-
         </form>
 
-        <div >
-          <div className='footerLogin'>
-            <Link to='/cadastro'>Cadastre-se</Link>
-          </div>
-          <div className='footerLogin'>
-            <Link to='/admin/login'>Administrador</Link>
-          </div>
-          <div className='footerLogin'>
-            <Link to='/dev/login'>Desenvolvedor</Link>
-          </div>
-        </div>
-
+        <div className='row'>
+                    <Link to='/'>Voltar</Link>
+                </div>
 
       </div>
 
-
+      
     </section >
   )
 }

@@ -1,29 +1,23 @@
-import api from './api';
-
-export async function ClientAuthenticated()  {
+export function ClientAuthenticated()  {
     if (localStorage.getItem('token')) {
-        const token = localStorage.getItem('token');
-
-        await api.get('/autenticar', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
+        return true
 
     } else {
         return false
     }
 }
 
-export async function AdminAuthenticated()  {
+export function AdminAuthenticated()  {
     if (localStorage.getItem('adminToken')) {
-        const token = localStorage.getItem('adminToken');
+        return true
+    } else {
+        return false
+    }
+}
 
-        await api.get('/admin/autenticar', {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
+export function DevAuthenticated() {
+    if(localStorage.getItem('devToken')) {
+        return true
     } else {
         return false
     }

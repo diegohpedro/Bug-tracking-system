@@ -3,7 +3,7 @@ import ModalDev from '../ModalDev'
 
 import './style.css'
 
-export default function CardDev({assunto, descricao, nomeUsuario, id, tarefas}) {
+export default function CardDev({assunto, descricao, nomeUsuario, id, tarefas, acao, status}) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ export default function CardDev({assunto, descricao, nomeUsuario, id, tarefas}) 
           <div className="card-dev-autor">{nomeUsuario}</div>
           <div className="card-dev-tarefa">Tarefas: {tarefas.length}</div>
           <button onClick={()=> setIsModalVisible(true)} className="btn-ver">Ver</button>
-            {isModalVisible ? <ModalDev id={id} onClose={()=> setIsModalVisible(false)}/> : null}
+            {isModalVisible ? <ModalDev acao={acao} id={id} status={status} onClose={()=> setIsModalVisible(false)}/> : null}
         </div>
       </div>
     </div>

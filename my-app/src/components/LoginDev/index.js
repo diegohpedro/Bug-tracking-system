@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory, Link} from 'react-router-dom';
-import './style.css'
 
-import api from '../../../services/api';
+import api from '../../services/api';
 
-export default function LoginAdmin() {
+export default function LoginDev() {
   const history = useHistory();
 
   const [email, setEmail] = useState('');
@@ -14,9 +13,15 @@ export default function LoginAdmin() {
     if(localStorage.getItem('token')){
       
       return history.push('/dashboard');
+
     } else if (localStorage.getItem('adminToken')) {
       
       return history.push('/admin/dashboard');
+
+    } else if (localStorage.getItem('devToken')){
+
+      return history.push('/dev/dashboard');
+
     }
   }, []);
 
@@ -28,11 +33,11 @@ export default function LoginAdmin() {
       senha
     }
 
-    api.post('/admin/login', body).then(res => {
+    api.post('/dev/login', body).then(res => {
 
-      localStorage.setItem('adminToken', res.data.token);
+      localStorage.setItem('devToken', res.data.token);
 
-      return history.push('/admin/dashboard');
+      return history.push('/dev/dashboard');
     }).catch(err => {
       localStorage.clear();
       alert('Email/senha incorretos.')
@@ -46,7 +51,7 @@ export default function LoginAdmin() {
       <div className='login-content'>
 
         <header className="content-header">
-          <h2>Login(Admin)</h2>
+          <h2>Login(Dev)</h2>
         </header>
 
         <form className="login-form">

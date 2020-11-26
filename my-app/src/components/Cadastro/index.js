@@ -15,9 +15,15 @@ export default function Cadastro() {
         if(localStorage.getItem('token')){
           
           return history.push('/dashboard');
+    
         } else if (localStorage.getItem('adminToken')) {
           
           return history.push('/admin/dashboard');
+    
+        } else if (localStorage.getItem('devToken')){
+    
+          return history.push('/dev/dashboard');
+    
         }
       }, []);
 
@@ -32,7 +38,9 @@ export default function Cadastro() {
 
         api.post('/cadastro', body).then(res => {
             alert('Usuário cadastrado');
-            return history.push('/');
+            localStorage.setItem('token', res.data.token);
+
+            return history.push('/dashboard');
         }).catch(err => {
             localStorage.clear();
             alert('Email já cadastrado');
