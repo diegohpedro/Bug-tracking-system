@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router'
 import api from '../../../services/api';
+import './style.css';
 
 class ModalDev extends Component {
   constructor(props) {
@@ -82,20 +83,20 @@ class ModalDev extends Component {
       return <Redirect to="/dev/dashboard" />
     } else {
       return (
-        <div id='modal' className="modal">
+        <div id='modal-dev' className="modal">
           <div className="container" >
             <button className='close' onClick={this.props.onClose}>X</button>
             <div className='content'>
-              <div className='coluna'>
-                <h1>Assunto: </h1>
-                <p>{this.state.projeto.assunto}</p>
+              <div id='coluna-assunto' className='coluna' >
+                <h1  >Assunto: </h1>
+                <p id="dados-descricao" className='dados' >{this.state.projeto.assunto}</p>
   
                 <h1>Descrição: </h1>
-                <p>{this.state.projeto.descricao}</p>
+                <p  id="dados-descricao">{this.state.projeto.descricao}</p>
   
               </div>
   
-              <div className='container-tarefas'>
+              <div id="container-meio" className='container-tarefas'>
   
                 {this.state.tarefas.map((tarefa, index) => {
                   if(this.props.status === 1) {
@@ -115,7 +116,7 @@ class ModalDev extends Component {
                 
               </div>
   
-              <div className='coluna'>
+              <div id="coluna-chamado" className='coluna'>
                 <h1>Chamado feito por: </h1>
                 <p>{this.state.projeto.nome}</p>
               </div>

@@ -1,14 +1,15 @@
 .container-projetos {
     display: flex;
-    align-items: center;
-    justify-content:space-between;
+    align-items: flex-start;
+    justify-content:space-around;
     width: 100%;
     max-width: 1000px;
-    align-items: center; 
+    
 }
 
-.container-main {
-    text-align: initial;
+.container-main  h1 {
+    text-align: center;
+    margin-top: 10px;
 }
 
 .projeto {
@@ -20,6 +21,7 @@
     max-width: 300px;
     margin: 5px;
     align-items: top;
+    
     /* background-color: rgb(208, 255, 0); */
     
 }
