@@ -5,7 +5,7 @@ import api from '../../../services/api';
 
 import './style.css'
 
-function ModalUsuario({ onClose, id}) {
+function ModalUsuario({ onClose, id, acao}) {
   const history = useHistory();
 
   const [atualizar, setAtualizar] = useState(0);
@@ -43,6 +43,7 @@ function ModalUsuario({ onClose, id}) {
       });
 
       setAtualizar(prev => prev + 1);
+      acao();
     }
 
     async function removerDev() {
@@ -58,6 +59,7 @@ function ModalUsuario({ onClose, id}) {
       });
 
       setAtualizar(prev => prev + 1);
+      acao();
     }
     return (
       <div id='modal' className="modal">

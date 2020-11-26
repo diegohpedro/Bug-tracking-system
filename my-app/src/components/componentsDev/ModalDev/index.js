@@ -14,6 +14,7 @@ class ModalDev extends Component {
   }
 
   componentDidMount = () => {
+    this.calcularTarefasCompletas();
     this.requisitarProjeto();
   }
 
@@ -33,6 +34,8 @@ class ModalDev extends Component {
   }
 
   clickInput = (e) => {
+    if(this.state.projeto.status != 1)
+      return alert('Projeto já está em análise');
     const {id} = e.target;
     api.put(`/dev/tarefa/${id}`, null, {
       headers: {
@@ -69,7 +72,7 @@ class ModalDev extends Component {
       }
     });
 
-    if(tarefasCompletas === this.state.tarefas.length){
+    if(tarefasCompletas === this.state.tarefas.length || tarefasCompletas === 0){
       this.setState({tarefasCompletas: true});
     } else {
       this.setState({tarefasCompletas: false});
@@ -93,31 +96,21 @@ class ModalDev extends Component {
                 <h1>Descrição: </h1>
                 <p>{this.state.projeto.descricao}</p>
   
+                <h1>Orientações:</h1>
+                <p>{this.state.projeto.orientacoes}</p>
               </div>
   
               <div className='container-tarefas'>
   
                 {this.state.tarefas.map((tarefa, index) => {
-                  if(this.props.status === 1) {
-                    return <div className='card-tarefa'>
+                    return <div className='card-tarefa' key={index}>
                           <h1>{tarefa.descricao} <input type='checkbox' id={tarefa._id} checked={tarefa.completo} onClick={this.clickInput} /></h1>
   
                           <p>Desenvolvedor responsável: {tarefa.responsavel.nome}</p>
                         </div>
-                  } else {
-                   return <div className='card-tarefa'>
-                          <h1>{tarefa.descricao} <input type='checkbox' id={tarefa._id} checked={tarefa.completo}/></h1>
-  
-                          <p>Desenvolvedor responsável: {tarefa.responsavel.nome}</p>
-                        </div>
-                  }
+                   
                   })}
                 
-              </div>
-  
-              <div className='coluna'>
-                <h1>Chamado feito por: </h1>
-                <p>{this.state.projeto.nome}</p>
               </div>
 
               {this.props.status === 2? <div>
@@ -128,7 +121,7 @@ class ModalDev extends Component {
                 <h1>Projeto finalizado</h1>
               </div> : null}
 
-              {!this.props.status === 2 
+              {this.state.projeto.status === 1 
                 ? !this.state.tarefasCompletas 
                   ? <button onClick={this.mandarParaAnalise}>Mandar para análise</button>
                   : null 

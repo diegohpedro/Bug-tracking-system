@@ -18,6 +18,10 @@ export default function DashboardAdmin() {
     const [chamadosFinalizados, setChamadosFinalizados] = useState([]);
 
     useEffect(() => {
+        requisitarChamados();
+    }, []);
+
+    function requisitarChamados() {
         api.get('/admin/dashboard', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -29,7 +33,7 @@ export default function DashboardAdmin() {
             localStorage.clear();
             return history.push('/');
         });
-    }, []);
+    }
 
     useEffect(() => {
         setChamadosAbertos(chamados.filter(chamado => chamado.status === 1));
@@ -64,7 +68,7 @@ export default function DashboardAdmin() {
                             
                 {chamados.map(chamado => {
                     if (chamado.usuario._id) {
-                        return <CardsChamado key={chamado._id} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
+                        return <CardsChamado key={chamado._id} acao={requisitarChamados} id={chamado._id} status={chamado.status} nomeUsuario={chamado.usuario.nome} assunto={chamado.assunto} />
                     }
                 })}
                 </section>

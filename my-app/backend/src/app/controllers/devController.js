@@ -5,8 +5,6 @@ const authMiddleware = require('../middlewares/auth');
 
 const Projeto = require('../models/projeto');
 const Tarefa = require('../models/tarefa');
-const Chamado = require('../models/chamado');
-const Usuario = require('../models/usuario');
 
 router.get('/dashboard', authMiddleware, async (req, res) => {
     try {
@@ -62,7 +60,7 @@ router.put('/tarefa/:id', authMiddleware, async (req, res) => {
         const idLogado = req.userId;
         
         const tarefa = await Tarefa.findById(req.params.id).populate('responsavel');
-
+        
         const idResponsavel = tarefa.responsavel._id;
 
         if (idLogado != idResponsavel)
