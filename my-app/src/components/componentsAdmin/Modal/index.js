@@ -57,40 +57,39 @@ function Modal(props) {
   }
 
   return (
-    <div id='modal' className="modal">
-      <div className="container" >
+    // <div id='modal' className="modal">
+      <div className="container" className="cont-2">
         <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
-          <div className='coluna'>
-            <label>Assunto</label>
-            <h1>{assunto}</h1>
-            <label>Descrição</label>
-            <h1>{descricao}</h1>
+          {/* <div className='coluna'> */}
+            <label className='categoria'>Assunto</label>
+            <h1 className='dados'>{assunto}</h1>
+            <label className='categoria'>Descrição</label>
+            <h1 className='dados'>{descricao}</h1>
             
-          </div>
-          <div className='coluna'>
-            <label>Nome</label>
-            <h1>{nome}</h1>
+          {/* </div> */}
+          {/* <div className='coluna'> */}
+            <label className='categoria'>Nome</label>
+            <h1 className='dados'>{nome}</h1>
             
-            <label>Email</label>
-            <h1>{email}</h1>
+            <label className='categoria'>Email</label>
+            <h1 className='dados'>{email}</h1>
             
-            <label>Status</label>
-            <h1>{verificarStatus()}</h1>
-          </div>
+            <label className='categoria'>Status</label>
+            <h1 className='dados'>{verificarStatus()}</h1>
+          {/* </div> */}
 
-          {status === 1 ? <button onClick={deletarChamado}>Deletar chamado</button> : null}
+          {status === 1 ? <button onClick={deletarChamado} className='btn-del'>Deletar chamado</button> : null}
           
           {status === 1
-            ? <button onClick={()=> setIsModalVisible(true)}>Montar projeto</button>
+            ? <button onClick={()=> setIsModalVisible(true)} className='btn-proejeto'>Montar projeto</button>
             : <button >Ver projeto</button>}
 
             {isModalVisible ? <ModalProjeto id={props.id} nome={nome} assunto={assunto} descricao={descricao} onClose={()=> setIsModalVisible(false)}/> : null}
 
         </div>
       </div>
-    </div>
-
+    //</div>
   )
 }
 

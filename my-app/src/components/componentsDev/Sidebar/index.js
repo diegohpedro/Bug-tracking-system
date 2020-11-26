@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 import './style.css';
 
-export default function SidebarCliente() {
+export default function SidebarDev() {
 
     return(
         <aside id='sidebar'>

@@ -39,7 +39,7 @@ export default function PerfilAdmin() {
                 <section className='perfil'>
                     <div >
                     <div>
-                        <img src={FotoCleiton}/>
+                        <img src={FotoCleiton} className='img-client'/>
                         <button className='btn-img'>Editar</button>
                     </div>
                     <div>

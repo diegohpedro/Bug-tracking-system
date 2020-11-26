@@ -8,8 +8,8 @@ export default function Sidebar() {
         <aside id='sidebar'>
             <nav>
                 <NavLink to='/admin/dashboard' activeClassName='selected'>Dashboard</NavLink>
-                <NavLink to='/admin/perfil' >Perfil</NavLink>
-                <NavLink to='/admin/usuarios' >Usuarios</NavLink>
+                <NavLink to='/admin/perfil' activeClassName='selected'>Perfil</NavLink>
+                <NavLink to='/admin/usuarios' activeClassName='selected'>Usuarios</NavLink>
                 <NavLink to='/admin/login' onClick={() => localStorage.clear()}>Sair</NavLink>
             </nav>
         </aside>

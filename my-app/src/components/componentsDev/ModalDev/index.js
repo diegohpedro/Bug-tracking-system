@@ -1,59 +1,58 @@
 import React, { useEffect, useState } from 'react';
-// ../../../services/api
+import CardTarefa from '../CardTarefa';
 import api from '../../../services/api';
 
 // import './style.css'
 
 function ModalDev(props) {
-  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const [assunto, setAssunto] = useState('');
   const [descricao, setDescricao] = useState('');
   const [nome, setNome] = useState('');
-  const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('');
-
+  const [tarefas, setTarefas] = useState([]);
+  const [tarefasCompletas, setTarefasCompletas] = useState();
+  
   useEffect(() => {
-    api.get(`/admin/chamado/${props.id}`, {
-      headers: {
-        'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-      }
-    }).then(res => {
-      const chamado = res.data;
-      setAssunto(chamado.assunto);
-      setDescricao(chamado.descricao);
-      setNome(chamado.usuario.nome);
-      setEmail(chamado.usuario.email);
-      setStatus(chamado.status);
-    }).catch(err => {
-      console.log(err)
-      alert('Houve algum erro na requisição');
+    requisitarProjeto();
+    verificarTarefas(tarefas);
+  }, [tarefasCompletas]);
+
+  function verificarTarefas(tarefas) {
+    let tarefasCompletas = 0;
+
+    tarefas.forEach(tarefa => {
+      if(tarefa.completo) tarefasCompletas++;
     });
-
-  }, []);
-
-  function verificarStatus() {
-    if(status === 1) {
-      return <h1>Aberto</h1>
-    } else if (status === 2) {
-      return <h1>Em progresso</h1>
-    } else if (status === 3) {
-      return <h1>Finalizado</h1>
-    }
+    setTarefasCompletas(tarefasCompletas);
+    
   }
 
-  function deletarChamado() {
-    if(window.confirm('Deseja deletar o chamado?')){
-      api.delete(`/chamado/${props.id}`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        }
-      }).then(res => {
-        alert('Deletado');
-      }).catch(err => {
-        alert('Erro ao deletar');
-      })
-    }
+  function requisitarProjeto() {
+    api.get(`/dev/projeto/${props.id}`, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    }).then(res => {
+      const {data} = res
+      setAssunto(data.assunto);
+      setDescricao(data.descricao);
+      setNome(data.usuario.nome);
+      setTarefas(data.tarefas);
+    }).catch(err => {
+      console.log(err);
+    });
+  }
+
+  function mandarParaAnalise() {
+    api.put(`/dev/projeto/${props.id}`, null, {
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      }
+    }).then(res => {
+      alert('Projeto em análise!');
+    }).catch(err => {
+      console.log(err);
+    });
   }
 
   return (
@@ -62,23 +61,29 @@ function ModalDev(props) {
         <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
           <div className='coluna'>
-            <label>Assunto</label>
-            <h1>aqui fica o assunto</h1>
-            
-            <label>Descrição</label>
-            <h1>Aqui fica a descrição</h1>
-            
-          </div>
-          <div className='coluna'>
-            <label>Autor</label>
-            <h1>Nome do Autor</h1>
-            <label>Responsavel</label>
-            <h1>Nome Responsavel</h1>
-            <label>Status</label>
-            <h1>{verificarStatus()}</h1>
-          </div>
-  
+            <h1>Assunto: </h1>
+            <p>{assunto}</p>
 
+            <h1>Descrição: </h1>
+            <p>{descricao}</p>
+
+          </div>
+
+          <div className='containet-tarefas'>
+            {tarefas.map((tarefa, index) => {
+              return <CardTarefa key={index} id={tarefa._id}/>
+            })}
+          </div>
+
+          <div className='coluna'>
+            <h1>Chamado feito por: </h1>
+            <p>{nome}</p>
+            <h1>Responsavel: </h1>
+            <p>Nome do admin responsavel pelo projeto</p>
+
+            {(tarefasCompletas === tarefas.length)? <button onClick={mandarParaAnalise}>Mandar para análise</button>: null }
+
+          </div>
         </div>
       </div>
     </div>

@@ -54,7 +54,7 @@ export default function LoginAdmin() {
           <img src={image} className='imagem' alt="Desenho de um homem analisando dados" />
 
           <div className='row'>
-            <label htmlFor="inputUser">Email</label>
+            <label htmlFor="inputUser" className='email'>Email</label>
             <input className="input-login"
               value={email}
               onChange={event => setEmail(event.target.value)}
@@ -64,7 +64,7 @@ export default function LoginAdmin() {
             />
           </div>
           <div className='row'>
-            <label htmlFor="inputPassword" >Senha</label>
+            <label htmlFor="inputPassword" className='senha'>Senha</label>
             <input className="input-login"
               value={senha}
               onChange={event => setSenha(event.target.value)}

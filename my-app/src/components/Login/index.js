@@ -54,7 +54,7 @@ export default function Login() {
       <form className="login-form">
       <img src={IMG} width="900" alt="Imagem de uma equipe discutindo uma ideia" />
         <div className='row'>
-          <label htmlFor="inputUser">Email</label>
+          <label htmlFor="inputUser" className='email'>Email</label>
           <input className="input-login"
             value={email}
             onChange={event => setEmail(event.target.value)}
@@ -64,7 +64,7 @@ export default function Login() {
           />
         </div>
         <div className='row'>
-          <label htmlFor="inputPassword" >Senha</label>
+          <label htmlFor="inputPassword" className='senha'>Senha</label>
           <input className="input-login"
             value={senha}
             onChange={event => setSenha(event.target.value)}

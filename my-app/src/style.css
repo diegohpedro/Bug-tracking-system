@@ -23,3 +23,7 @@ img {
 #conteudo main {
     width: 100%;
 }
+
+#sidebar nav a:hover {
+    background-color: #053c4b;
+}

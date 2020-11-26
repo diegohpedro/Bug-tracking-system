@@ -6,6 +6,10 @@
   outline: none;
 }
 
+.email, .senha {
+  text-align: center;
+}
+
 .container-login{
   position: fixed;
   display: flex;
@@ -50,7 +54,7 @@ label{
   border-radius: 5px;
 }
 
-.btn-login{
+button.btn-login{
   padding:10px;
   cursor: pointer;
   border-radius:5px;
@@ -59,13 +63,17 @@ label{
   font-size: 1.4rem;
   transition: all 0.3s ease;
   opacity: 1;
-  background-color: indigo;
+  text-align: center;
+  background: linear-gradient(145deg, #066b7c, #055a68);
+  box-shadow:  0px 0px 3px #055563, 
+               0px 0px 3px #077385;
+  /* background: linear-gradient(145deg, #6ac8ff, #59a8d6);
+  box-shadow:  0px 0px 2px #549fca,
+                0px  0px 2px #72d7ff; */
 }
 
-.btn-login:hover
-{
-  background-color:rgb(16, 243, 69);
-  color: black;
+button.btn-login:hover{
+  color: white;
 }
 
 .content-header{
