@@ -9,13 +9,14 @@ import Login from './components/Login';
 import LoginAdmin from './components/LoginAdmin';
 import LoginDev from './components/LoginDev';
 
-import NovoChamado from './components/componentsCliente/Cliente/NovoChamado';
-import DashboardCliente from './components/componentsCliente/Cliente/DashboardCliente';
-import Perfil from './components/componentsCliente/Cliente/Perfil';
+import NovoChamado from './components/componentsCliente/NovoChamado';
+import DashboardCliente from './components/componentsCliente/DashboardCliente';
+import Perfil from './components/componentsCliente/Perfil';
 
 import DashboardAdmin from './components/componentsAdmin/DashboardAdmin';
 import PerfilAdmin from './components/componentsAdmin/PerfilAdmin';
 import Usuarios from './components/componentsAdmin/Usuarios';
+import Projetos from './components/componentsAdmin/Projetos';
 
 import DashboardDev from './components/componentsDev/DashboardDev';
 
@@ -92,6 +93,7 @@ export default function Rotas() {
                 <PrivateAdminRoute path='/admin/dashboard' component={DashboardAdmin}/>
                 <PrivateAdminRoute path='/admin/perfil' component={PerfilAdmin}/>
                 <PrivateAdminRoute path='/admin/usuarios' component={Usuarios}/>
+                <PrivateAdminRoute path='/admin/projetos' component={Projetos} />
 
                 <PrivateDevRoute path='/dev/dashboard' component={DashboardDev} />
 

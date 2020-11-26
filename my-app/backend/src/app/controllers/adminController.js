@@ -148,13 +148,43 @@ router.post('/novoprojeto',authMiddleware, async (req,res) => {
     }
 });
 
-router.get('/projeto/:id',authMiddleware, async(req, res) => {
+router.get('/projeto/:id', authMiddleware, async (req, res) => {
     try {
-        const projeto = await Projeto.findById(req.params.id).populate(['usuario', 'tarefas']);
+        const projeto = await Projeto.findById(req.params.id).populate('usuario');
+
+        const tarefas = [];
+
+        await Promise.all(projeto.tarefas.map(async tarefa => {
+            const tarefaReq = await Tarefa.findById(tarefa._id).populate('responsavel');
+            
+            tarefas.push(tarefaReq);
+        }));
+
+        return res.send({projeto, tarefas});
+    } catch {
+        return res.status(400).send({ erro: 'Erro na requisição' });
+    }
+});
+
+router.put('/projeto/finalizar/:id', authMiddleware, async (req, res) => {
+    try {
+        const projeto = await Projeto.findByIdAndUpdate(req.params.id, {status: 3});
         
-        return res.send({projeto});
-    } catch (err) {
-        res.status(400).send({erro: 'Nenhum projeto encontrado'})
+        return res.send(projeto);
+
+    } catch {
+        return res.status(400).send({ erro: 'Erro na requisição' });
+    }
+});
+
+router.put('/projeto/recusar/:id', authMiddleware, async (req, res) => {
+    try {
+        const projeto = await Projeto.findByIdAndUpdate(req.params.id, {status: 1});
+        
+        return res.send(projeto);
+
+    } catch {
+        return res.status(400).send({ erro: 'Erro na requisição' });
     }
 });
 

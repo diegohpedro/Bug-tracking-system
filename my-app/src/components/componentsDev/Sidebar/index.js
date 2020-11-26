@@ -9,7 +9,6 @@ export default function SidebarDev() {
         <aside id='sidebar'>
             <nav>
                 <Link to='/dev/dashboard'>Dashboard</Link>
-                <Link to='/dev/perfil' >Meu perfil</Link>
                 <Link to='/' onClick={() => localStorage.clear()}>Sair</Link>
             </nav>
         </aside>

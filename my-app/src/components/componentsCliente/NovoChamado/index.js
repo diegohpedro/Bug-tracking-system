@@ -1,29 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 
-import api from "../../../../services/api";
+import api from "../../../services/api";
 
 import './style.css';
 
-export default function NovoChamado(props) {
+export default function NovoChamado() {
     const history = useHistory();
-    const [usuarioId, setUsuarioId] = useState('');
     const [assunto, setAssunto] = useState('');
     const [descricao, setDescricao] = useState('');
-
-    useEffect(() => {
-        api.get('/autenticar', {
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
-        }).then(res => {
-            setUsuarioId(res.data);
-        }).catch(err => {
-            return history.push('/');
-        });
-    }, []);
 
     async function submeter(event) {
         event.preventDefault();

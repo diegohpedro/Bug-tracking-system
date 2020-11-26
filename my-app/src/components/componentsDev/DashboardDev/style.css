@@ -1,10 +1,16 @@
 .container-projetos {
     display: flex;
     align-items: flex-start;
+<<<<<<< HEAD
     justify-content:space-around;
     width: 100%;
     max-width: 1000px;
     
+=======
+    justify-content:space-between;
+    width: 100%;
+    max-width: 1000px;
+>>>>>>> 49a72ad17ee7ab082f555fcb79d4a4c9e6108ace
 }
 
 .container-main  h1 {

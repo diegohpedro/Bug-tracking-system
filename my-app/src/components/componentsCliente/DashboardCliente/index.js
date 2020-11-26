@@ -4,7 +4,7 @@ import SidebarCliente from '../Sidebar';
 import CardKamban from '../Cards-Kamban/card-kamban';
 import CardChamado from '../Cards-Chamado/card-chamado';
 
-import api from '../../../../services/api';
+import api from '../../../services/api';
 
 import './style.css';
 
@@ -37,10 +37,6 @@ export default function DashboardCliente() {
             return history.push('/');
         });
     }, [chamados]);
-
-    function mostrarChamados() {
-        console.log(meusChamados);
-    }
 
     return (
         <section id='conteudo'>
