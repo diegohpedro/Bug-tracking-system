@@ -1,11 +1,20 @@
 .cardchamado{
-  width: 98%;
+  width: 85.5%;
   max-width: 1000px;
   padding:10px;
   box-sizing: border-box;
-  border: 1px solid  rgb(14, 0, 0);
+  border: 2px solid  rgb(0, 162, 255);
   border-radius: 10px;
-  margin-left: 10%;
-  margin: 5px
-  
+  margin-left: 0.5%;
+}
+
+button.btn-ver {
+  background: linear-gradient(145deg, #a5e0f0, #54daff);
+  box-shadow:  1px 1px 5px #52abc4,
+               0px 0px 5px #6ee7ff;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  border-radius: 3px;
 }

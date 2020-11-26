@@ -7,7 +7,6 @@ export default function CardChamado(props) {
   const [isModalVisible, setIsModalVisible] = useState(false);
   
   return (
-
     <div className="cardchamado-agente" >
       <div className={cor} >
         <div className="cardchamado-body">
@@ -15,11 +14,10 @@ export default function CardChamado(props) {
           {/* <div className="cardchamado-nivel">{props.status}</div> */}
           <div className="cardchamado-autor">{props.nomeUsuario}</div>
           <div className="cardchamado-estado">{props.status}</div>
-          <button onClick={()=> setIsModalVisible(true)}>Ver</button>
+          <button onClick={()=> setIsModalVisible(true)} className='btn-ver'>Ver</button>
             {isModalVisible ? <Modal id={props.id} onClose={()=> setIsModalVisible(false)}/> : null}
         </div>
       </div>
     </div>
   )
-
 }

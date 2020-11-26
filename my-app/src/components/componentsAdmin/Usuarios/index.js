@@ -29,7 +29,7 @@ export default function Usuarios() {
             <main>
                 <ConteudoHeader
                     titulo='Usuarios'
-                    descricao='Lista de usuarios.'
+                    descricao='Lista de usuários.'
                 />
                 {usuarios.map(usuario => {
                         return <CardUsuario key={usuario._id} email={usuario.email} id={usuario._id} nome={usuario.nome} dev={usuario.dev} admin={usuario.admin}/>

@@ -15,9 +15,15 @@ export default function Cadastro() {
         if(localStorage.getItem('token')){
           
           return history.push('/dashboard');
+    
         } else if (localStorage.getItem('adminToken')) {
           
           return history.push('/admin/dashboard');
+    
+        } else if (localStorage.getItem('devToken')){
+    
+          return history.push('/dev/dashboard');
+    
         }
       }, []);
 
@@ -32,7 +38,9 @@ export default function Cadastro() {
 
         api.post('/cadastro', body).then(res => {
             alert('Usuário cadastrado');
-            return history.push('/');
+            localStorage.setItem('token', res.data.token);
+
+            return history.push('/dashboard');
         }).catch(err => {
             localStorage.clear();
             alert('Email já cadastrado');
@@ -51,7 +59,7 @@ export default function Cadastro() {
 
                 <form className="login-form">
                     <div className='row'>
-                        <label htmlFor="inputUser">Nome</label>
+                        <label htmlFor="inputUser" className='campo'>Nome</label>
                         <input className="input-login"
                             value={nome}
                             onChange={event => setNome(event.target.value)}
@@ -62,7 +70,7 @@ export default function Cadastro() {
                     </div>
 
                     <div className='row'>
-                        <label htmlFor="inputUser">Email</label>
+                        <label htmlFor="inputUser" className='campo'>Email</label>
                         <input className="input-login"
                             value={email}
                             onChange={event => setEmail(event.target.value)}
@@ -71,8 +79,8 @@ export default function Cadastro() {
                             name="user"
                         />
                     </div>
-                    <div className='row'>
-                        <label htmlFor="inputPassword" >Senha</label>
+                    <div className='row' >
+                        <label htmlFor="inputPassword" className='campo'>Senha</label>
                         <input className="input-login"
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
@@ -87,13 +95,11 @@ export default function Cadastro() {
 
                 </form>
 
-                <div className='row'>
+                <div className='row' className='btn-voltar'>
                     <Link to='/'>Voltar</Link>
                 </div>
 
             </div>
-
-
         </section >
     )
 }

@@ -55,15 +55,15 @@ export default function DashboardCliente() {
                 </section>
 
                 <section className='row-inputbusca'>
-                    <label>Ex.(bug na pagina inicial)</label>
-                    <input type="search" className='inputbusca' placeholder='Procurar' />
+                    {/* <label>Ex.(bug na pagina inicial)</label> */}
+                    <input type="search" className='inputbusca' placeholder='Ex.(bug na pagina inicial)' />
                     <button type="submit" className="btn-buscar" onClick={mostrarChamados}>Buscar</button>
                 </section>
 
 
                 <section className='row-ticketsCliente'>
 
-                    <h3 >Meus Chamados</h3>
+                    <h3 className='m-chamados'>Meus Chamados</h3>
 
                     <div className='headerTicketsCliente'>
 

@@ -48,17 +48,17 @@ export default function DashboardAdmin() {
                 <CardsKamban cor='card-ticketconcluido' quantidade={chamadosFinalizados.length} name='Finalizados' />
 
             <section className='row-ticketsAdm'>
-            <h2>Chamados</h2>
+                {/* <h2>Chamados</h2> */}
                 <div className='headerTicketsAdm'>
             
                 <div className='assuntoTicketsAdm'>
                     <h3>Assunto</h3>
                 </div>
                 <div className='autorTicketsAdm'>
-                    <h3>Autor</h3>
+                    <h3 className='aut'>Autor</h3>
                 </div>
                 <div className='statusTicketsAdm'>
-                    <h3>Status</h3>
+                    <h3 className='sta'>Status</h3>
                 </div>
                 </div>
                             
@@ -68,8 +68,6 @@ export default function DashboardAdmin() {
                     }
                 })}
                 </section>
-                
-
             </main>
         </section>
     )

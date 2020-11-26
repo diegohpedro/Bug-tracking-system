@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 import FotoPerfil from '../../../Img/perfilsemfoto.jpg';
-// import './style.css'
-
+import './style.css'
+import FotoCleiton from '../../../Img/cleiton.jpeg'
 import api from '../../../../services/api';
 
 export default function PerfilAdmin() {
@@ -39,18 +39,18 @@ export default function PerfilAdmin() {
                 <section className='perfil'>
                     <div >
                     <div>
-                        <img src={FotoPerfil}/>                        
-                        <button>Editar</button>
+                        <img src={FotoCleiton} className='img-client'/>
+                        <button className='btn-img'>Editar</button>
                     </div>
                     <div>
-                        <h1>Nome: </h1>
-                        <h1>{nome}</h1><button>Editar</button>
+                        <h1 className='name'>Nome: </h1>
+                        <h1 className='name-client'>{nome}</h1><button className='btn-name'>Editar</button>
                     </div>
                 
                     <div>
-                        <h1>Email: </h1>
-                        <h1>{email}</h1>
-                        <button>Editar</button>
+                        <h1 className='e-mail'>Email: </h1>
+                        <h1 className='email-client'>{email}</h1>
+                        <button className='btn-email'>Editar</button>
                     </div>
                     
                     </div>

@@ -1,9 +1,10 @@
 #sidebar {
-    background-color: #b7b7a4;
+    background-color: rgb(101, 213, 252);
     width: 350px;
     height: 130vh;
     display: flex;
     align-items: center;
+    color: white;
 }
 
 #sidebar nav {
@@ -22,7 +23,6 @@
     text-align: center;
     justify-content: center;
     width: 100%;
-    color: #212529;
     height: 100px;
     transition: 0.25s ease-in;
 }

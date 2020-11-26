@@ -4,8 +4,6 @@ import './style.css'
 export default function CardKamban(props) {
   let cor = props.cor
   return (
-
-    
     <div className="card-kamban" >
       <div className={cor} >
         <div className="card-kamban-body">
@@ -17,5 +15,4 @@ export default function CardKamban(props) {
       </div>
     </div>
   )
-
 }

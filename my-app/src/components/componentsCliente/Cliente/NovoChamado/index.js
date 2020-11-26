@@ -48,7 +48,7 @@ export default function NovoChamado(props) {
         <section id='conteudo'>
             <Sidebar />
             <main>
-                <section>
+                <section className='chamado'>
                     <ConteudoHeader
                         titulo='Novo chamado'
                         descricao='Painel para abertura de chamado.'
@@ -68,30 +68,9 @@ export default function NovoChamado(props) {
                     </section>
 
                     <section className='form-secundario'>
-                        {/* <div>
-                            <label>Nome para contato</label>
-                            <input value={nome} onChange={event => setNome(event.target.value)}type="text" />
-                        </div>
-                        <div>
-                            <label>E-mail</label>
-                            <input value={email} onChange={event => setEmail(event.target.value)}type="email" />
-                        </div>
-                        <div>
-                            <label>Telefone</label>
-                            <input value={telefone} onChange={event => setTelefone(event.target.value)}type="number" />
-                        </div> */}
-                        {/* <div>
-                            <label>Categoria do bug</label>
-                            <select value={categoria} onChange={event => setCategoria(event.target.value)} >
-                                <option value="bug-1">bug-1</option>
-                                <option value="bug-2">bug-2</option>
-                                <option value="bug-3">bug-3</option>
-                                <option value="bug-4">bug-4</option>
-                            </select>
-                        </div> */}
                         <div className='btn'>
-                            <button id='btn-cancelar'>Cancelar</button>
                             <button id='btn-criarchamado' type='submit' onClick={submeter}>Criar Chamado</button>
+                            <button id='btn-cancelar'>Cancelar</button>
                         </div>
                     </section>
 
