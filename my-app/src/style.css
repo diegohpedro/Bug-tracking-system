@@ -3,6 +3,17 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    color: black;
+}
+
+body {
+    background-color: #d2f2fc;
+}
+
+img {
+    position: relative;
+    top: -5px;
+    left: 120px;
 }
 
 #conteudo {
@@ -11,4 +22,8 @@
 
 #conteudo main {
     width: 100%;
+}
+
+#sidebar nav a:hover {
+    background-color: #053c4b;
 }

@@ -59,7 +59,7 @@ export default function Cadastro() {
 
                 <form className="login-form">
                     <div className='row'>
-                        <label htmlFor="inputUser">Nome</label>
+                        <label htmlFor="inputUser" className='campo'>Nome</label>
                         <input className="input-login"
                             value={nome}
                             onChange={event => setNome(event.target.value)}
@@ -70,7 +70,7 @@ export default function Cadastro() {
                     </div>
 
                     <div className='row'>
-                        <label htmlFor="inputUser">Email</label>
+                        <label htmlFor="inputUser" className='campo'>Email</label>
                         <input className="input-login"
                             value={email}
                             onChange={event => setEmail(event.target.value)}
@@ -79,8 +79,8 @@ export default function Cadastro() {
                             name="user"
                         />
                     </div>
-                    <div className='row'>
-                        <label htmlFor="inputPassword" >Senha</label>
+                    <div className='row' >
+                        <label htmlFor="inputPassword" className='campo'>Senha</label>
                         <input className="input-login"
                             value={senha}
                             onChange={event => setSenha(event.target.value)}
@@ -95,13 +95,11 @@ export default function Cadastro() {
 
                 </form>
 
-                <div className='row'>
+                <div className='row' className='btn-voltar'>
                     <Link to='/'>Voltar</Link>
                 </div>
 
             </div>
-
-
         </section >
     )
 }

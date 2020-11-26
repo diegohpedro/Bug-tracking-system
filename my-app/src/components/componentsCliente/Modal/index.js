@@ -54,35 +54,33 @@ function Modal(props) {
   }
 
   return (
-    <div id='modal' className="modal">
+    // <div id='modal' className="modal">
       <div className="container" >
         <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
-          <div className='coluna'>
-            <label>Assunto</label>
-            <h1>{assunto}</h1>
-            <label>Descrição</label>
-            <h1>{descricao}</h1>
+          {/* <div className='coluna'> */}
+            <label className='categoria' id='title'>Assunto</label>
+            <h1 className='dados' id='assunto'>{assunto}</h1>
+            <label className='categoria' id='desc'>Descrição</label>
+            <h1 className='dados' id='dados'>{descricao}</h1>
             
-          </div>
-          <div className='coluna'>
-            <label>Nome</label>
-            <h1>{nome}</h1>
+          {/* </div> */}
+          {/* <div className='coluna'> */}
+            <label className='categoria'>Nome</label>
+            <h1 className='dados'>{nome}</h1>
             
-            <label>Email</label>
-            <h1>{email}</h1>
+            <label className='categoria'>Email</label>
+            <h1 className='dados'>{email}</h1>
             
-            <label>Status</label>
-            <h1>{status}</h1>
-          </div>
+            <label className='categoria'>Status</label>
+            <h1 className='dados'>{status}</h1>
+          {/* </div> */}
 
-          <button onClick={deletarChamado}>Deletar chamado</button>
-
+          <button className='btn-del' onClick={deletarChamado}>Deletar Chamado</button>
 
         </div>
       </div>
-    </div>
-
+    // </div>
   )
 }
 

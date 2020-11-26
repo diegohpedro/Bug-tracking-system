@@ -35,7 +35,7 @@ export default function NovoChamado() {
         <section id='conteudo'>
             <Sidebar />
             <main>
-                <section>
+                <section className='chamado'>
                     <ConteudoHeader
                         titulo='Novo chamado'
                         descricao='Painel para abertura de chamado.'
@@ -56,8 +56,8 @@ export default function NovoChamado() {
 
                     <section className='form-secundario'>
                         <div className='btn'>
-                            <button id='btn-cancelar'>Cancelar</button>
                             <button id='btn-criarchamado' type='submit' onClick={submeter}>Criar Chamado</button>
+                            <button id='btn-cancelar'>Cancelar</button>
                         </div>
                     </section>
 

@@ -3,19 +3,21 @@
   max-width: 1000px;
   padding:10px;
   box-sizing: border-box;
-  border: 1px solid  rgb(14, 0, 0);
+  border: 1px solid  rgb(0, 0, 0);
   margin-left: 10%;
   margin: 5px;
   background-color: rgb(120, 167, 175);
 }
+
 .cardchamado-descricao{
   display: inline-block;
-  border: 1px solid  rgb(14, 0, 0);
+  border: 1px solid  rgb(0, 162, 255);
   border-radius: 5px;
   padding: 5px;
   margin-right: 10px;
   width: 61%;
 }
+
 .cardchamado-nivel{
   display: inline-block;
   border: 1px solid  rgb(14, 0, 0);
@@ -24,6 +26,7 @@
   margin-right: 10px;
   width: 10%;
 }
+
 .cardchamado-autor{
   display: inline-block;
   border: 1px solid  rgb(14, 0, 0);
@@ -32,6 +35,7 @@
   margin-right: 10px;
   width: 20%;
 }
+
 .cardchamado-estado{
   display: inline-block;
   border: 1px solid  rgb(14, 0, 0);
@@ -39,10 +43,10 @@
   padding: 5px;
   width: 10%;
 }
+
 .cardchamado-body{
   display: flex;
   justify-content: space-around;
   text-align: center;
-  background-color:white;
 }
 
