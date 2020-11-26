@@ -10,6 +10,10 @@ export default function Usuarios() {
     const [usuarios, setUsuarios] = useState([]);
 
     useEffect(() => {
+        requisitarUsuarios();
+    }, []);
+
+    function requisitarUsuarios() {
         api.get('/admin/usuarios', {
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -20,7 +24,7 @@ export default function Usuarios() {
             localStorage.clear();
             return history.push('/');
         });
-    }, []);
+    }
 
     return (
         <section id='conteudo' >
@@ -31,7 +35,7 @@ export default function Usuarios() {
                     descricao='Lista de usuários.'
                 />
                 {usuarios.map(usuario => {
-                        return <CardUsuario key={usuario._id} email={usuario.email} id={usuario._id} nome={usuario.nome} dev={usuario.dev} admin={usuario.admin}/>
+                        return <CardUsuario key={usuario._id} acao={requisitarUsuarios} email={usuario.email} id={usuario._id} nome={usuario.nome} dev={usuario.dev} admin={usuario.admin}/>
                     })}
             </main>
 

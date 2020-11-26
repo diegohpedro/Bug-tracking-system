@@ -1,15 +1,15 @@
-/* .modal{
-  width: 100%;
+#modal{
+  width: 100vw;
   height: 100vh;
-  position: absolute;
-  top:-500px;
+  position: fixed;
+  top:0px;
   left:0;
   z-index: 2000;
   background-color: rgba(0,0,0,.75);
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 
 div.container{
   width: 100%;
@@ -47,10 +47,10 @@ div.container{
 
 #assunto {
   position: relative;
-  top: -10px;
+  top: -100px;
 }
 
-label.categoria {
+label.categoria-1 {
   text-transform: uppercase;
   font-weight: bold;
   width: 110px;
@@ -59,11 +59,11 @@ label.categoria {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  top: 100px;
+  top: 10px;
   left: 100px;
 }
 
-h1.dados {
+.dados {
   display: flex;
   justify-content: initial;
   align-items: center;
@@ -89,10 +89,11 @@ h1.dados {
   font-size: 16px;
 }
 
-.btn-del {
+button.btn-del-1 {
   position: relative;
-  top: 130px;
+  /* width: 300px; */
   padding: 10px;
+  top: 170px;
   border: none;
   border-radius: 10px;
   background: linear-gradient(145deg, #f51616, #ce1313);
@@ -100,4 +101,5 @@ h1.dados {
                 0px 0px 1px #ff1818;
   cursor: pointer;
   font-size: 18px;
+  left: -400px;
 }

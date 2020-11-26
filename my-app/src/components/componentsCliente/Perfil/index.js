@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react';
 import { useHistory } from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
-import FotoPerfil from '../../../Img/perfilsemfoto.jpg';
+
+import FotoCleiton from '../../Img/cleiton.jpeg'
+
 import './style.css'
-import FotoCleiton from '../../../Img/cleiton.jpeg'
-import api from '../../../../services/api';
+
+import api from '../../../services/api';
 
 export default function PerfilAdmin() {
     const history = useHistory();

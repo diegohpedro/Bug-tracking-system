@@ -1,9 +1,9 @@
 import React, { useState}from 'react';
-import ModalDev from '../ModalDev'
+import ModalProjeto from '../ModalProjeto'
 
 import './style.css'
 
-export default function CardDev({assunto, descricao, nomeUsuario, id, tarefas, acao, status}) {
+export default function CardProjeto({assunto, descricao, nomeUsuario, id, acao, status}) {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   return (
@@ -14,9 +14,8 @@ export default function CardDev({assunto, descricao, nomeUsuario, id, tarefas, a
           <div className="card-dev-assunto">{assunto}</div>
           <div className="card-dev-descricao">{descricao}</div>
           <div className="card-dev-autor">{nomeUsuario}</div>
-          <div className="card-dev-tarefa">Tarefas: {tarefas.length}</div>
-          <button id="botao-enviar" onClick={()=> setIsModalVisible(true)} className="btn-ver">Ver</button>
-            {isModalVisible ? <ModalDev acao={acao} id={id} status={status} onClose={()=> setIsModalVisible(false)}/> : null}
+          <button onClick={()=> setIsModalVisible(true)} className="btn-ver">Analisar</button>
+            {isModalVisible ? <ModalProjeto acao={acao} id={id} status={status} onClose={()=> setIsModalVisible(false)}/> : null}
         </div>
       </div>
     </div>
