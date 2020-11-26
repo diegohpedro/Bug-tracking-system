@@ -60,7 +60,7 @@ function ModalUsuario({ onClose, id}) {
       setAtualizar(prev => prev + 1);
     }
     return (
-      <div id='modal' className="modal">
+      // <div id='modal' className="modal">
         <div className="container" >
           <button className='close' onClick={onClose}>X</button>
           <div className='content'>
@@ -79,8 +79,7 @@ function ModalUsuario({ onClose, id}) {
             {(!dev) ? <button onClick={tornarDev}>Tornar desenvolvedor</button>: <button onClick={removerDev}>Remover desenvolvedor</button>}
           </div>
         </div>
-      </div>
-
+      // </div>
     )
 }
 

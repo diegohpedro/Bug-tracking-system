@@ -48,7 +48,6 @@ export default function DashboardAdmin() {
                 <CardsKamban cor='card-ticketconcluido' quantidade={chamadosFinalizados.length} name='Finalizados' />
 
             <section className='row-ticketsAdm'>
-                {/* <h2>Chamados</h2> */}
                 <div className='headerTicketsAdm'>
             
                 <div className='assuntoTicketsAdm'>

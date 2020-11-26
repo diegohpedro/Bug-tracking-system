@@ -74,57 +74,58 @@ function ModalProjeto(props) {
   }
 
   return (
-    <div id='modal' className="modal">
+    // <div id='modal' className="modal" className='modal-teste'>
       <div className="container" >
         <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
           <div className='coluna'>
   
-            <label>Assunto</label>
-            <h1>{props.assunto}</h1>
+            <label className='categoria-2'>Assunto</label>
+            <h1 className='dados-2'>{props.assunto}</h1>
 
-            <label>Descrição</label>
-            <h1>{props.descricao}</h1>
+            <label className='categoria-2'>Descrição</label>
+            <h1 className='dados-2'>{props.descricao}</h1>
 
           </div>
           <div className='coluna'>
 
-            <label htmlfor='info'>Orientações</label>
-            <textarea 
+            <label htmlfor='info' className='orientacao'>Orientações</label>
+            <textarea className='form-principal'
               name='info' 
               value={orientacoesTarefa} 
               placeholder='Descreva aqui as informações, objetivos e observações do projeto.'
               onChange = {event => setOrientacoesTarefa(event.target.value)} 
             />
 
-            <h1>Tarefas</h1>
-
+            <h1 className='tarefa'>Tarefas</h1>
+          <div className='lista-tarefas'>
             {tarefas.map(tarefa => {
-              return <p key={tarefas.responsavel}>{tarefa.descricao} {tarefa.nomeResponsavel}</p>
+              return <li key={tarefas.responsavel}>{tarefa.descricao} {tarefa.nomeResponsavel}</li>
             })}
+          </div>
 
             <div>
-              <input 
+              <input className='desc-tarefa'
                 placeholder='Descreva a tarefa.'
                 value = {descricaoTarefa}
                 onChange = {event => setDescricaoTarefa(event.target.value)}
               />
 
               <select name="devs" id='devs'>
-                <option value='0'>Selecione um desenvolvedor</option>
+                <option value='0'>Selecione um Desenvolvedor</option>
                 {usuarios.map(usuario => {return <option value={usuario._id}>{usuario.nome}</option>})}
               </select>
             </div>
 
-            <button onClick={adicionarTarefa}>Adicionar</button>
+            <button className='add' onClick={adicionarTarefa}>Adicionar Tarefa</button>
 
           </div>
 
-          <button onClick={montarProjeto}>Montar</button>
+          <button className='montar' onClick={montarProjeto}>Montar</button>
 
         </div>
       </div>
-    </div>
+    // </div>
 
   )
 }

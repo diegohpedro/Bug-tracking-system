@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* justify-content: space-between; */
 }
 img{
   width: 100%;
@@ -28,4 +27,59 @@ img{
   border: 2px solid rgb(101, 213, 252);
   background-color: rgb(101, 213, 252);
   cursor: pointer;
+}
+
+div button.btn-img {
+  position: relative;
+  top: 10px;
+  left: -90px;
+  background: linear-gradient(145deg, #6cd2ff, #5bb0e2);
+  box-shadow:  0px 0px 10px #56a7d5;
+  border: none;
+}
+
+h1.name {
+  width: 90px;
+  position: relative;
+  left: -130px;
+  top: 41px;
+}
+
+.name-client{
+  width: 200px;
+  position: relative;
+  top: 20px;
+  left: -70px;
+
+}
+
+div button.btn-name {
+  position: relative;
+  top: -15px;
+  left: 140px;
+  background: linear-gradient(145deg, #6cd2ff, #5bb0e2);
+  box-shadow:  0px 0px 10px #56a7d5;
+  border: none;
+}
+
+.e-mail {
+  width: 60px;
+  position: relative;
+  left: -112px;
+  top: 20px;
+}
+
+.email-client {
+  position: relative;
+  top: -2px;
+  left: -55px;
+}
+
+div button.btn-email {
+  position: relative;
+  top: -35px;
+  left: 140px;
+  background: linear-gradient(145deg, #6cd2ff, #5bb0e2);
+  box-shadow:  0px 0px 10px #56a7d5;
+  border: none;
 }

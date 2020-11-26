@@ -41,18 +41,18 @@ export default function PerfilAdmin() {
                 <section className='perfil'>
                     <div >
                         <div>
-                            <img src={FotoPerfil} />
-                            <button className='editarImagem'>Editar</button>
+                            <img src={FotoPerfil} className='img-client'/>
+                            <button className='editarImagem' className='btn-img'>Editar</button>
                         </div>
                         <div>
-                            <label>Nome: </label>
-                            <h1>{nome}</h1><button>Editar</button>
+                            <h1 className='name'>Nome: </h1>
+                            <h1 className='name-client'>{nome}</h1><button className='btn-name'>Editar</button>
                         </div>
 
                         <div>
-                            <label>Email: </label>
-                            <h1>{email}</h1>
-                            <button>Editar</button>
+                            <h1 className='e-mail'>Email: </h1>
+                            <h1 className='email-client'>{email}</h1>
+                            <button className='btn-email'>Editar</button>
                         </div>
 
                     </div>

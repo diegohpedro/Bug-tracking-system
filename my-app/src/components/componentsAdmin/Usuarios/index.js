@@ -3,7 +3,6 @@ import { useHistory} from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 import CardUsuario from '../CardUsuario';
-
 import api from '../../../services/api';
 
 export default function Usuarios() {
@@ -24,7 +23,7 @@ export default function Usuarios() {
     }, []);
 
     return (
-        <section id='conteudo'>
+        <section id='conteudo' >
             <Sidebar />
             <main>
                 <ConteudoHeader

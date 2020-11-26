@@ -58,7 +58,7 @@ function Modal(props) {
 
   return (
     // <div id='modal' className="modal">
-      <div className="container" className="cont-2">
+      <div className="container">
         <button className='close' onClick={props.onClose}>X</button>
         <div className='content'>
           {/* <div className='coluna'> */}

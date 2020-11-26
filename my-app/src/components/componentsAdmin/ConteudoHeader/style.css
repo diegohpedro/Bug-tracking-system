@@ -1,6 +1,4 @@
 #conteudo-header {
-    padding-left: 20px;
-    background-color: rgb(147, 219, 243);
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -14,6 +12,6 @@
 }
 
 #conteudo-header p {
-    font-size: 18px; 
-    font-family: 'Helvetica', sans-serif; 
+    font-size: 18px;
+    font-family: 'Helvetica', sans-serif;
 }

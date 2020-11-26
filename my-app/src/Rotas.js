@@ -39,31 +39,6 @@ const PrivateAdminRoute = ({ component: Component, ...rest }) => (
     )} />
 )
 
-// export default function Rotas() {
-//     return (
-//             <BrowserRouter>
-//                 <Switch>
-
-//                     <Route exact path='/' component={Login} />
-//                     <Route path='/cadastro' component={Cadastro} />
-//                     <Route path='/admin/login' component={LoginAdmin} />
-
-
-//                     <PrivateRoute path='/dashboard' component={DashboardCliente} />
-//                     <PrivateRoute path='/novochamado' component={NovoChamado} />
-//                     <PrivateRoute path='/perfil' component={Perfil} />
-
-
-
-//                     <PrivateAdminRoute path='/admin/dashboard' component={DashboardAdmin} />
-//                     <PrivateAdminRoute path='/admin/perfil' component={PerfilAdmin} />
-//                     <PrivateAdminRoute path='/admin/usuarios' component={Usuarios} />
-
-//                     <Route path='/dev/dashboard' component={DashboardDev} />
-
-//                 </Switch>
-//             </BrowserRouter>
-//     )
 const PrivateDevRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
         DevAuthenticated() ? (
