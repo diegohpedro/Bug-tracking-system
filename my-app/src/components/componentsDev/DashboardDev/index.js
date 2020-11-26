@@ -32,7 +32,7 @@ export default function DashboardDev() {
     return (
 
             <section id='conteudo'>
-                <SidebarDev />
+                <Sidebar />
                 <main className='container-main'>
                     <h1>Projetos</h1>
                     <div className='container-projetos'>
