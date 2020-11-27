@@ -4,7 +4,7 @@ import SidebarCliente from '../Sidebar';
 import CardKamban from '../Cards-Kamban/card-kamban';
 import CardChamado from '../Cards-Chamado/card-chamado';
 
-import api from '../../../../services/api';
+import api from '../../../services/api';
 
 import './style.css';
 
@@ -38,10 +38,6 @@ export default function DashboardCliente() {
         });
     }, [chamados]);
 
-    function mostrarChamados() {
-        console.log(meusChamados);
-    }
-
     return (
         <section id='conteudo'>
             <SidebarCliente />
@@ -57,7 +53,7 @@ export default function DashboardCliente() {
                 <section className='row-inputbusca'>
                     {/* <label>Ex.(bug na pagina inicial)</label> */}
                     <input type="search" className='inputbusca' placeholder='Ex.(bug na pagina inicial)' />
-                    <button type="submit" className="btn-buscar" onClick={mostrarChamados}>Buscar</button>
+                    <button type="submit" className="btn-buscar" >Buscar</button>
                 </section>
 
 

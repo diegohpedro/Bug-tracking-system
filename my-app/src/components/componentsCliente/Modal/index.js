@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
-import api from '../../../../services/api';
-
+import api from '../../../services/api';
 import './style.css'
 
 function Modal(props) {
@@ -54,33 +52,30 @@ function Modal(props) {
   }
 
   return (
-    // <div id='modal' className="modal">
-      <div className="container" >
-        <button className='close' onClick={props.onClose}>X</button>
-        <div className='content'>
-          {/* <div className='coluna'> */}
-            <label className='categoria' id='title'>Assunto</label>
-            <h1 className='dados' id='assunto'>{assunto}</h1>
-            <label className='categoria' id='desc'>Descrição</label>
-            <h1 className='dados' id='dados'>{descricao}</h1>
+    <div id='modalCliente' className='modal' >
+        <div className="container" id='container-client'>
+          <button className='close' onClick={props.onClose}>X</button>
+            <div className='content'>
+            <label className='categoria-1' id='title' id='assunto'>Assunto</label>
+            <h1 className='dados-1' id='assunto'>{assunto}</h1>
+            <label className='categoria-1' id='assunto'>Descrição</label>
+            <h1 className='dados-1' id='dados-1'>{descricao}</h1>
             
-          {/* </div> */}
-          {/* <div className='coluna'> */}
-            <label className='categoria'>Nome</label>
-            <h1 className='dados'>{nome}</h1>
+            <label className='categoria-1'>Nome</label>
+            <h1 className='dados-1'>{nome}</h1>
             
-            <label className='categoria'>Email</label>
-            <h1 className='dados'>{email}</h1>
+            <label className='categoria-1'>Email</label>
+            <h1 className='dados-1'>{email}</h1>
             
-            <label className='categoria'>Status</label>
-            <h1 className='dados'>{status}</h1>
-          {/* </div> */}
+            <label className='categoria-1'>Status</label>
+            <h1 className='dados-1'>{status}</h1>
+            </div>
+            
 
-          <button className='btn-del' onClick={deletarChamado}>Deletar Chamado</button>
 
+            <button className='btn-del-1' onClick={deletarChamado}>Deletar Chamado</button>
         </div>
-      </div>
-    // </div>
+    </div>
   )
 }
 

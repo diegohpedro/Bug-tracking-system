@@ -1,31 +1,66 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { Component } from 'react';
+import CardProjeto from '../CardProjeto';
+import {Redirect} from 'react-router';
+import Sidebar from '../Sidebar';
 
 import api from '../../../services/api';
 
-function DashboardDev() {
+class Projetos extends Component {
+    constructor(props){
+        super(props);
+        this.state = {projetos: []};
+    }
 
-    return (
-        <section id='conteudo'>
-            <SidebarDev />
-            <main className='container-main'>
-                <h1>Projetos</h1>
-                <div className='container-projetos'>
-                    <section className='row-card'>
-                        <h1>Aguardando análise</h1>
-                        
-                    </section>
+    componentDidMount = () => {
+        this.requisitarProjetos();
+    }
 
-                    <section className='row-card'>
-                        <h1>Finalizados</h1>
+    requisitarProjetos = () => {
+        api.get('/admin/projetos', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+            }
+        }).then(res => {
+            this.setState({projetos: res.data});
+        }).catch(err => {
+            localStorage.clear();
 
-                    </section>
-                </div>
-            </main>
+            return <Redirect to="/" />
+        });
+    }
 
-        </section>
-    )
+    render() {
+
+        return (
+            <section id='conteudo'>
+                <Sidebar />
+                <main className='container-main'>
+                    <h1>Projetos</h1>
+                    <div className='container-projetos'>
+                        <section className='row-card'>
+                            <h1>Aguardando análise</h1>
+                            {this.state.projetos.map((projeto, index) => {
+                                if(projeto.status === 2) {
+                                    return <CardProjeto key={index} acao={this.requisitarProjetos} id={projeto._id} descricao={projeto.descricao} status={projeto.status} nomeUsuario={projeto.usuario.nome} assunto={projeto.assunto} />
+                                }
+                            })}
+                        </section>
+
+                        <section className='row-card'>
+                            <h1>Finalizados</h1>
+                            {this.state.projetos.map((projeto, index) => {
+                                if(projeto.status === 3) {
+                                    return <CardProjeto key={index} acao={this.requisitarProjetos} id={projeto._id} descricao={projeto.descricao} status={projeto.status} nomeUsuario={projeto.usuario.nome} assunto={projeto.assunto} />
+                                }
+                            })}
+                        </section>
+                    </div>
+                </main>
+
+            </section>
+        )
+    }
 
 }
 
-export default DashboardDev;
+export default Projetos;

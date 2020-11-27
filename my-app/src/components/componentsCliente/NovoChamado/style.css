@@ -14,18 +14,20 @@
 }
 
 .form-principal{
-    /* background-color: #fa0b0b; */
     display: inline-block;
     width: 55%;
     height: 100%;
     padding: 10px;
-    position: relative;
-    left: 200px;
+    position: absolute;
+    left: 500px;
 }
 
 .form-principal input {
     padding: 5px;
     width: 100%;
+    background-color: rgb(231, 241, 245);
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
 label{
@@ -40,6 +42,7 @@ label{
     max-height:300px;
     border-radius: 5px;
     box-sizing: border-box;
+    background-color: rgb(231, 241, 245);
 }
 
 .form-secundario{
@@ -79,6 +82,13 @@ label{
     margin: 5px;
     font-size: 1rem;
     cursor: pointer;
+    position: relative;
+    top: 400px;
+    left: 100px;
+    background: linear-gradient(145deg, #ffcdda, #aa3232);
+    box-shadow:  20px 20px 60px #a3c5ce,
+                -20px -20px 60px #ddffff;
+    border-radius: 5px;
 }
 
 #btn-criarchamado{
@@ -89,5 +99,8 @@ label{
     margin: 5px;
     font-size: 1rem;
     cursor: pointer;
+    position: relative;
+    top: 400px;
+    left: 100px;
 }
 

@@ -22,6 +22,7 @@ img {
 
 #conteudo main {
     width: 100%;
+    padding-left: 280px;
 }
 
 #sidebar nav a:hover {

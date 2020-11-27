@@ -1,0 +1,46 @@
+#modalCliente{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top:0px;
+  left:0;
+  z-index: 2000;
+  background-color: rgba(0,0,0,.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dados-1 {
+  display: flex;
+  justify-content: initial;
+  width: 300px;
+  height: 30px;
+  position: relative;
+  top: 50px;
+  left: 300px;
+} 
+
+.categoria-1{
+  display: flex;
+  justify-content: initial;
+  width: 300px;
+  height: 30px;
+  position: relative;
+  top: 70px;
+  left: 100px;
+} 
+
+button.btn-del-1 {
+  position: relative;
+  padding: 10px;
+  top: 170px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #f51616, #ce1313);
+  box-shadow:  2px 2px 5px #c31212,
+                0px 0px 1px #ff1818;
+  cursor: pointer;
+  font-size: 18px;
+  left: -400px;
+}

@@ -58,7 +58,11 @@ class DashboardDev extends Component {
     
                             <section className='row-card'>
                                 <h1>Finalizados</h1>
-    
+                                {this.state.projetos.map((projeto, index) => {
+                                    if(projeto.status === 3) {
+                                        return <CardDev key={index} status={projeto.status} acao={this.requisitarProjetos} assunto={projeto.assunto} descricao={projeto.descricao} nomeUsuario={projeto.usuario.nome} id={projeto._id} tarefas={projeto.tarefas}/>
+                                    }
+                                })}
                             </section>
                         </div>
                     </main>
