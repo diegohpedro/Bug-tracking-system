@@ -53,7 +53,7 @@ export default function DashboardCliente() {
                 <section className='row-inputbusca'>
                     <label>Ex.(bug na pagina inicial)</label>
                     <input type="search" className='inputbusca' placeholder='Procurar' />
-                    <button type="submit" className="btn-buscar" onClick={mostrarChamados}>Buscar</button>
+                    <button type="submit" className="btn-buscar">Buscar</button>
                 </section>
 
 
