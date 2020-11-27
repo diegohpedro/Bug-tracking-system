@@ -56,7 +56,7 @@ export default function LoginDev() {
 
         <form className="login-form">
           <div className='row'>
-            <label htmlFor="inputUser">Email</label>
+            <label htmlFor="inputUser" className='campo'>Email</label>
             <input className="input-login"
               value={email}
               onChange={event => setEmail(event.target.value)}
@@ -66,7 +66,7 @@ export default function LoginDev() {
             />
           </div>
           <div className='row'>
-            <label htmlFor="inputPassword" >Senha</label>
+            <label htmlFor="inputPassword" className='campo'>Senha</label>
             <input className="input-login"
               value={senha}
               onChange={event => setSenha(event.target.value)}
@@ -81,7 +81,7 @@ export default function LoginDev() {
 
         </form>
 
-        <div className='row'>
+        <div className='row' className='campo'>
                     <Link to='/'>Voltar</Link>
                 </div>
 

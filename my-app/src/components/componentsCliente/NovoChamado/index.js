@@ -25,7 +25,7 @@ export default function NovoChamado() {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }});
 
-        alert('Chamado criado');
+        alert('Chamado Criado');
         setAssunto('');
         setDescricao('');
     }
@@ -43,7 +43,7 @@ export default function NovoChamado() {
                 </section>
                 <form method='post' action="mailto:fabiopegoraro10@gmail.com" className='formulario' >
 
-                    <section className='form-principal' >
+                    <section className='form-principal'>
                         <div >
                             <label>Assunto do chamado</label>
                             <input type="text" value={assunto} onChange={event => setAssunto(event.target.value)} placeholder='Digite o assunto'/>
@@ -60,10 +60,8 @@ export default function NovoChamado() {
                             <button id='btn-criarchamado' type='submit' onClick={submeter}>Criar Chamado</button>
                         </div>
                     </section>
-
                 </form>
             </main>
-
         </section>
     )
 }

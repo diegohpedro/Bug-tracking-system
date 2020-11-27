@@ -1,3 +1,203 @@
-#adminModalProjeto h1, p, h3 {
-    color: black;
+/* #modal h1, p {
+  color: black;
 }
+
+.modal-teste {
+  background-color: violet;
+  position: relative;
+  top: -90px;
+  display: flex;
+}
+
+.container{
+  background-color: rgb(248, 248, 248);
+  color: #0000;
+  width: 900px;
+  height: 500px;
+  border-radius: 20px;
+  position: absolute;
+  display: flex;
+}
+
+
+
+.close{
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 20px;
+  border:none;
+  right: 0%;
+  cursor: pointer;
+  top:5px;
+  right: 5px;
+  font-size: 16px;
+}
+
+.assuntoModal{
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  padding: 10px; 
+}
+
+.modal label{
+  color: rgb(0, 0, 0);
+  font-size: 1.6rem;
+}
+
+.content{
+  width: 100%;
+  height: 500px;
+} 
+
+.coluna{
+  margin: 2%;
+  width:100%;
+  max-width: 400px;
+  display: flex;
+}
+
+.categoria-2 {
+  width: 120px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: -50px;
+  left: 90px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: start;
+}
+
+.orientacao {
+  width: 120px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 140px;
+  left: -343px;
+  font-weight: bold;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+textarea.form-principal {
+  padding: 10px;
+  resize: none;
+  width: 100%;
+  height: 50px;
+  max-height:300px;
+  border-radius: 5px;
+  position: relative;
+  top: 115px;
+  left: -135.5px;
+  box-sizing: border-box;
+  background-color: rgb(212, 241, 250);
+  border: none;
+}
+
+.dados-2 {
+  position: relative;
+  left: 300px;
+  top: -77px;
+  display: flex;
+
+}
+
+.tarefa {
+  width: 90px;
+  position: relative;
+  top: 120px;
+  left: -350px;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+.desc-tarefa {
+  width: 400px;
+  height: 50px;
+  position: relative;
+  top: 100px;
+  left: -135px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(212, 241, 250);
+  padding: 6px;
+}
+
+#devs {
+  width: 200px;
+  height: 25px;
+  position: relative;
+  background-color: rgb(212, 241, 250);
+  top: 110px;
+  left: -33px;
+  border: none;
+  border-radius: 5px;
+}
+
+.add {
+  width: 100px;
+  height: 35px;
+  position: relative;
+  background: linear-gradient(145deg, #1cea33, #17c52b);
+  box-shadow:  0px 0px 2px #16ba29,
+              0px 0px 2px #1efc37;
+  top: 40px;
+  left: 150px;
+  border: none;
+  border-radius: 5px; 
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+  padding: 3px;
+  transition: color .4s;
+}
+
+.montar {
+  width: 200px;
+  height: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #ffffff, #98d0df);
+  box-shadow:  0px 0px 2px #17a0c2, 
+              0px 0px 2px #1fd8ff;
+  top: 200px;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  left: 670px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.montar:hover {
+  color: #1bd115;
+}
+
+.add:hover {
+  color: #ffffff;
+}
+
+.lista-tarefas{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 200px;
+  position: absolute;
+  top: 300px;
+  left: 260px;
+  padding: 5px;
+}
+
+li {
+  color: #000;
+} */
+

@@ -51,7 +51,6 @@ export default function DashboardCliente() {
                 </section>
 
                 <section className='row-inputbusca'>
-                    <label>Ex.(bug na pagina inicial)</label>
                     <input type="search" className='inputbusca' placeholder='Procurar' />
                     <button type="submit" className="btn-buscar">Buscar</button>
                 </section>
@@ -59,7 +58,7 @@ export default function DashboardCliente() {
 
                 <section className='row-ticketsCliente'>
 
-                    <h3 >Meus Chamados</h3>
+                    <h3 className='m-chamados'>Meus Chamados</h3>
 
                     <div className='headerTicketsCliente'>
 

@@ -14,15 +14,15 @@ export default function PerfilAdmin() {
     const [email, setEmail] = useState('');
 
     useEffect(async () => {
-      const {data} = await api.get('/dev/dashboard', {
-          headers: {
-              'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-      });
+        const { data } = await api.get('/dev/dashboard', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
 
-  
-      
-  }, []);
+
+
+    }, []);
 
     return (
         <section id='conteudo'>

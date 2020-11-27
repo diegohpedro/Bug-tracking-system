@@ -15,6 +15,10 @@ function ModalUsuario({ onClose, id, acao}) {
   const [dev, setDev] = useState();
 
   useEffect(() => {
+    requisitarUsuario();
+  }, []);
+
+  function requisitarUsuario() {
     api.get(`/admin/usuario/${id}`,{
       headers: {
           'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
@@ -28,7 +32,7 @@ function ModalUsuario({ onClose, id, acao}) {
     }).catch(err => {
       alert('Erro na requisição de usuário!');
     });
-  }, [atualizar]);
+  }
 
   async function tornarDev() {
       api.patch(`/admin/usuario/${id}`, {}, {
@@ -42,8 +46,7 @@ function ModalUsuario({ onClose, id, acao}) {
         return history.push('/');
       });
 
-      setAtualizar(prev => prev + 1);
-      acao();
+      requisitarUsuario();
     }
 
     async function removerDev() {
@@ -58,8 +61,7 @@ function ModalUsuario({ onClose, id, acao}) {
         return history.push('/');
       });
 
-      setAtualizar(prev => prev + 1);
-      acao();
+      requisitarUsuario();
     }
     return (
       <div id='modal' className="modal">
@@ -82,7 +84,6 @@ function ModalUsuario({ onClose, id, acao}) {
           </div>
         </div>
       </div>
-
     )
 }
 

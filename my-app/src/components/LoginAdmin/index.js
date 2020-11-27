@@ -1,8 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { useHistory, Link} from 'react-router-dom';
 import './style.css'
+import image from '../Img/analytics_process_flatline.svg'
 
 import api from '../../services/api';
+
 
 export default function LoginAdmin() {
   const history = useHistory();
@@ -45,16 +47,18 @@ export default function LoginAdmin() {
 
   return (
     <section className="container-login">
-
       <div className='login-content'>
 
         <header className="content-header">
-          <h2>Login(Admin)</h2>
+          <h2>Login (Admin)</h2>
         </header>
 
         <form className="login-form">
+          
+          <img src={image} className='imagem' alt="Desenho de um homem analisando dados" />
+
           <div className='row'>
-            <label htmlFor="inputUser">Email</label>
+            <label htmlFor="inputUser" className='campo'>Email</label>
             <input className="input-login"
               value={email}
               onChange={event => setEmail(event.target.value)}
@@ -64,7 +68,7 @@ export default function LoginAdmin() {
             />
           </div>
           <div className='row'>
-            <label htmlFor="inputPassword" >Senha</label>
+            <label htmlFor="inputPassword" className='campo'>Senha</label>
             <input className="input-login"
               value={senha}
               onChange={event => setSenha(event.target.value)}
@@ -76,13 +80,11 @@ export default function LoginAdmin() {
           <div className='row'>
             <button type="submit" className="btn-login" onClick={entrar}>Entrar</button>
           </div>
-
         </form>
 
-        <div className='row'>
+        <div className='row' className='btn-voltar'>
                     <Link to='/'>Voltar</Link>
                 </div>
-
       </div>
 
       

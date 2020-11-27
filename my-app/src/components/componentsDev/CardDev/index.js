@@ -15,7 +15,7 @@ export default function CardDev({assunto, descricao, nomeUsuario, id, tarefas, a
           <div className="card-dev-descricao">{descricao}</div>
           <div className="card-dev-autor">{nomeUsuario}</div>
           <div className="card-dev-tarefa">Tarefas: {tarefas.length}</div>
-          <button onClick={()=> setIsModalVisible(true)} className="btn-ver">Ver</button>
+          <button id="botao-enviar" onClick={()=> setIsModalVisible(true)} className="btn-ver">Ver</button>
             {isModalVisible ? <ModalDev acao={acao} id={id} status={status} onClose={()=> setIsModalVisible(false)}/> : null}
         </div>
       </div>

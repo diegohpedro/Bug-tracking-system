@@ -7,16 +7,26 @@ export default function CardChamado(props) {
   let cor = props.cor
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  function formatarStatus(status) {
+    if(status === 1) {
+      return 'Aberto'
+    } else if (status === 2) {
+      return 'Em progresso'
+    } else if (status === 3 ) {
+      return 'Finalizado'
+    }
+  }
+
   return (
     <div className="cardchamado">
       <div className={cor} >
         <div className="cardchamado-body">
-            <h1>{props.status}</h1>
+            <h1>{formatarStatus(props.status)}</h1>
             <h1>{props.nomeUsuario}</h1>
             <p>
               {props.assunto}
             </p>
-            <button onClick={()=> setIsModalVisible(true)}>Ver</button>
+            <button className='btn-ver' onClick={()=> setIsModalVisible(true)}>Ver</button>
             {isModalVisible ? <Modal id={props.id} onClose={()=> setIsModalVisible(false)}/> : null}
         </div>
       

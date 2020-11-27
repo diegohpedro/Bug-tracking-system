@@ -19,6 +19,7 @@ import Usuarios from './components/componentsAdmin/Usuarios';
 import Projetos from './components/componentsAdmin/Projetos';
 
 import DashboardDev from './components/componentsDev/DashboardDev';
+import PerfilDev from './components/componentsDev/PerfilDev';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
@@ -71,6 +72,7 @@ export default function Rotas() {
                 <PrivateAdminRoute path='/admin/projetos' component={Projetos} />
 
                 <PrivateDevRoute path='/dev/dashboard' component={DashboardDev} />
+                {/* <PrivateDevRoute path='/dev/perfil' component={PerfilDev} /> */}
 
             </Switch>
         </BrowserRouter> 

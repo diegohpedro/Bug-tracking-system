@@ -3,7 +3,6 @@ import { useHistory} from 'react-router-dom';
 import Sidebar from '../Sidebar';
 import ConteudoHeader from '../ConteudoHeader';
 import CardUsuario from '../CardUsuario';
-
 import api from '../../../services/api';
 
 export default function Usuarios() {
@@ -28,12 +27,12 @@ export default function Usuarios() {
     }
 
     return (
-        <section id='conteudo'>
+        <section id='conteudo' >
             <Sidebar />
             <main>
                 <ConteudoHeader
                     titulo='Usuarios'
-                    descricao='Lista de usuarios.'
+                    descricao='Lista de usuários.'
                 />
                 {usuarios.map(usuario => {
                         return <CardUsuario key={usuario._id} acao={requisitarUsuarios} email={usuario.email} id={usuario._id} nome={usuario.nome} dev={usuario.dev} admin={usuario.admin}/>

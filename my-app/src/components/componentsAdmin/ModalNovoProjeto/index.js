@@ -73,10 +73,10 @@ function ModalProjeto(props) {
   }
 
   return (
-    <div id='modal' className="modal">
-      <div className="container" >
+    <div id='modalNovoProjeto' className="modal">
+      <div className="container" id="container-NovoProjeto">
         <button className='close' onClick={props.onClose}>X</button>
-        <div className='content'>
+        <div className='content-NovoProjeto'>
           <div className='coluna'>
   
             <label>Assunto</label>
@@ -115,11 +115,11 @@ function ModalProjeto(props) {
               </select>
             </div>
 
-            <button onClick={adicionarTarefa}>Adicionar</button>
+            <button id='btn-adicionar' onClick={adicionarTarefa}>Adicionar</button>
 
           </div>
 
-          <button onClick={montarProjeto}>Montar</button>
+          <button id='btn-montar' onClick={montarProjeto}>Montar</button>
 
         </div>
       </div>
